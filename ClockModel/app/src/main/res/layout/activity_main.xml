@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="git.example.dell.clockmodel.MainActivity">
+
+
+
+    <!--侧拉菜单-->
+    <android.support.v4.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drlayout">
+
+
+        <!--主页面的布局使用DrawerLayout要记得导入依赖-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:id="@+id/rg">
+                <RadioButton
+
+                    android:id="@+id/rb0"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/duanz"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp" />
+                <RadioButton
+                    android:id="@+id/rb1"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/ship"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp" />
+
+                <RadioButton
+                    android:id="@+id/rb2"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/tuij"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp" />
+            </RadioGroup>
+            <FrameLayout
+                android:id="@+id/fl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/rg">
+            </FrameLayout>
+        </RelativeLayout>
+
+        <!--侧拉菜单的布局   android:layout_gravity="start"  菜单在左边  end  菜单在右边 -->
+        <RelativeLayout
+            android:layout_width="240dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="#ffff00"
+            android:id="@+id/rel">
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                android:id="@+id/img"/>
+
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/lv"
+                android:layout_below="@id/img"></ListView>
+        </RelativeLayout>
+
+    </android.support.v4.widget.DrawerLayout>
+
+
+
+</RelativeLayout>
