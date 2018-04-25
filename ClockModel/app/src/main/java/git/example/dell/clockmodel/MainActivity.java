@@ -27,8 +27,9 @@ public class MainActivity extends AppCompatActivity {
     private void AllFragment() {
         //获取控件
         RadioGroup rg = findViewById(R.id.rg);
-        //创建CrosstalkFragment对象
+        //创建RecommendFragment对象
         recommendFragment = new RecommendFragment();
+
         //开启事务
         getSupportFragmentManager().beginTransaction().add(R.id.fl,recommendFragment).commit();
         //设置监听
@@ -46,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
                     case R.id.rb1:
 
                         if (crosstalkFragment == null) {
-
                             crosstalkFragment = new CrosstalkFragment();
+
                             getSupportFragmentManager().beginTransaction().add(R.id.fl, crosstalkFragment).commit();
 
                         } else {
