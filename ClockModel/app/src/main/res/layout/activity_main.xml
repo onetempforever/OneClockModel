@@ -36,7 +36,7 @@
                     android:checked="true"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:background="@drawable/duanz"
+                    android:background="@drawable/tuij"
                     android:layout_width="wrap_content"
                     android:layout_height="55dp" />
                 <RadioButton
@@ -44,7 +44,7 @@
                     android:button="@null"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:background="@drawable/ship"
+                    android:background="@drawable/duanz"
                     android:layout_width="wrap_content"
                     android:layout_height="55dp" />
 
@@ -53,7 +53,7 @@
                     android:button="@null"
                     android:gravity="center"
                     android:layout_weight="1"
-                    android:background="@drawable/tuij"
+                    android:background="@drawable/ship"
                     android:layout_width="wrap_content"
                     android:layout_height="55dp" />
             </RadioGroup>

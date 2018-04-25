@@ -28,9 +28,9 @@ public class MainActivity extends AppCompatActivity {
         //获取控件
         RadioGroup rg = findViewById(R.id.rg);
         //创建CrosstalkFragment对象
-        crosstalkFragment = new CrosstalkFragment();
+        recommendFragment = new RecommendFragment();
         //开启事务
-        getSupportFragmentManager().beginTransaction().add(R.id.fl,crosstalkFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fl,recommendFragment).commit();
         //设置监听
         rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -40,25 +40,27 @@ public class MainActivity extends AppCompatActivity {
 
                 switch (i) {
                     case R.id.rb0:
-                        getSupportFragmentManager().beginTransaction().show(crosstalkFragment).commit();
+                        getSupportFragmentManager().beginTransaction().show(recommendFragment).commit();
 
                         break;
                     case R.id.rb1:
 
-                        if (videoFragment == null) {
-                            videoFragment = new VideoFragment();
-                            getSupportFragmentManager().beginTransaction().add(R.id.fl, videoFragment).commit();
+                        if (crosstalkFragment == null) {
+
+                            crosstalkFragment = new CrosstalkFragment();
+                            getSupportFragmentManager().beginTransaction().add(R.id.fl, crosstalkFragment).commit();
 
                         } else {
-                            getSupportFragmentManager().beginTransaction().show(videoFragment).commit();
+                            getSupportFragmentManager().beginTransaction().show(crosstalkFragment).commit();
                         }
                         break;
                     case R.id.rb2:
-                        if (recommendFragment == null) {
-                            recommendFragment = new RecommendFragment();
-                            getSupportFragmentManager().beginTransaction().add(R.id.fl, recommendFragment).commit();
+                        if (videoFragment == null) {
+                            videoFragment = new VideoFragment();
+
+                            getSupportFragmentManager().beginTransaction().add(R.id.fl, videoFragment).commit();
                         } else {
-                            getSupportFragmentManager().beginTransaction().show(recommendFragment).commit();
+                            getSupportFragmentManager().beginTransaction().show(videoFragment).commit();
                         }
                         break;
                 }
@@ -67,14 +69,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void hideFragments(){
+        if (recommendFragment!=null&&recommendFragment.isAdded()){
+            getSupportFragmentManager().beginTransaction().hide(recommendFragment).commit();
+        }
         if (crosstalkFragment!=null&&crosstalkFragment.isAdded()){
             getSupportFragmentManager().beginTransaction().hide(crosstalkFragment).commit();
         }
         if (videoFragment!=null&&videoFragment.isAdded()){
             getSupportFragmentManager().beginTransaction().hide(videoFragment).commit();
-        }
-        if (recommendFragment!=null&&recommendFragment.isAdded()){
-            getSupportFragmentManager().beginTransaction().hide(recommendFragment).commit();
         }
 
     }
