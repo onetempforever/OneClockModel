@@ -26,18 +26,21 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
-    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
-    compile "io.reactivex.rxjava2:rxjava:2.1.10"
-    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
 
-
-    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    compile 'com.google.code.gson:gson:2.6.2'
+    compile 'com.squareup.retrofit2:converter-gson:2.0.2'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.2'
+    compile 'io.reactivex:rxjava:1.0.14'
+    compile 'io.reactivex:rxandroid:1.0.1'
+    compile 'com.squareup.okhttp3:okhttp:3.1.2'
     compile 'com.jcodecraeer:xrecyclerview:1.5.8'
     compile 'com.youth.banner:banner:1.4.8'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     //    日志拦截器
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'cn.jzvd:jiaozivideoplayer:6.0.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.makeramen:roundedimageview:2.2.1'
+
 
 }

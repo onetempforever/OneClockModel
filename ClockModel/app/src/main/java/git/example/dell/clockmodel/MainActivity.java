@@ -42,7 +42,6 @@ public class MainActivity extends AppCompatActivity {
                 switch (i) {
                     case R.id.rb0:
                         getSupportFragmentManager().beginTransaction().show(recommendFragment).commit();
-
                         break;
                     case R.id.rb1:
 
