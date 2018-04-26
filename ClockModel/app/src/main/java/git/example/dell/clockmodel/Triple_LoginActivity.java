@@ -7,16 +7,14 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-<<<<<<< HEAD
+
 import git.example.dell.clockmodel.R;
 
-public class Triple_LoginActivity extends AppCompatActivity {
-=======
 public class Triple_LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     private TextView other_loginWay;
     private ImageView back_rl;
->>>>>>> c5e78887585a97d334ac40f3c06a0c5c665662f5
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
