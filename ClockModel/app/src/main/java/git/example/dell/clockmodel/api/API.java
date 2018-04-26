@@ -1,9 +1,9 @@
-package git.example.dell.clockmodel.utils;
+package git.example.dell.clockmodel.api;
 
 /**
  * Created by dell on 2018/4/26.
  */
 
-public class HttpConfig {
+public class API {
     public static String base_url="https://www.zhaoapi.cn/";
 }

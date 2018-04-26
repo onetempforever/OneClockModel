@@ -1,8 +1,8 @@
-package git.example.dell.clockmodel.view;
+package git.example.dell.clockmodel.myvideo.viewInter;
 
 import java.util.List;
 
-import git.example.dell.clockmodel.model.VideoBean;
+import git.example.dell.clockmodel.myvideo.model.VideoBean;
 
 /**
  * Created by dell on 2018/4/26.

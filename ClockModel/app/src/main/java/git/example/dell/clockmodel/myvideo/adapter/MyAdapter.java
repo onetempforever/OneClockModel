@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel.view.adapter;
+package git.example.dell.clockmodel.myvideo.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import git.example.dell.clockmodel.R;
-import git.example.dell.clockmodel.model.VideoBean;
+import git.example.dell.clockmodel.myvideo.model.VideoBean;
 
 /**
  * Created by dell on 2018/4/26.
@@ -20,6 +20,7 @@ import git.example.dell.clockmodel.model.VideoBean;
 public class MyAdapter extends RecyclerView.Adapter <MyAdapter.MyViewHolder>{
     private Context context;
     private List<VideoBean.DataBean> data;
+    private HotItemClickListener hotItemClickListener;
 
     public MyAdapter(Context context, List<VideoBean.DataBean> data) {
         this.context = context;
@@ -37,7 +38,17 @@ public class MyAdapter extends RecyclerView.Adapter <MyAdapter.MyViewHolder>{
     public void onBindViewHolder(MyViewHolder holder, int position) {
         ImageView hotrecycler = holder.getHotrecycler();
         String icon = data.get(position).getUser().getIcon();
+        final int wid = data.get(position).getWid();
+
         Glide.with(context).load(icon).into(hotrecycler);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (hotItemClickListener!=null){
+                    hotItemClickListener.onClick(wid);
+                }
+            }
+        });
     }
 
     @Override
@@ -57,5 +68,11 @@ public class MyAdapter extends RecyclerView.Adapter <MyAdapter.MyViewHolder>{
         public ImageView getHotrecycler() {
             return hotrecycler;
         }
+    }
+    public interface HotItemClickListener{
+        void onClick(int wid);
+    }
+    public void setHotItemClickListener(HotItemClickListener hotItemClickListener){
+        this.hotItemClickListener=hotItemClickListener;
     }
 }

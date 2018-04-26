@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel.model.IModel;
+package git.example.dell.clockmodel.myvideo.model.IModel;
 
 import java.util.Map;
 
@@ -8,4 +8,5 @@ import java.util.Map;
 
 public interface HotModel {
     void getHotData( Map<String,String> map);
+    void getVideoDetail(Map<String,String> map);
 }
