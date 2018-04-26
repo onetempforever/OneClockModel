@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -38,8 +37,36 @@ public class VideoFragment extends Fragment {
         table = view.findViewById(R.id.tablayout);
         viewpager = view.findViewById(R.id.viewpager);
 
+<<<<<<< HEAD
 
         return view;
     }
 
+=======
+        menu = new ArrayList<>();
+        menu.add("热门");
+        menu.add("附近");
+        list = new ArrayList<>();
+        list.add(new HotFragment());
+        list.add(new NearBarFragment());
+        viewpager.setAdapter(new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
+            @Override
+            public Fragment getItem(int position) {
+                return list.get(position);
+            }
+
+            @Override
+            public int getCount() {
+                return list != null ? list.size() :0;
+            }
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                return menu.get(position);
+            }
+        });
+        table.setupWithViewPager(viewpager);
+        return view;
+    }
+>>>>>>> ceda85e912c63aa06e618f774ac84f3068c60680
 }
