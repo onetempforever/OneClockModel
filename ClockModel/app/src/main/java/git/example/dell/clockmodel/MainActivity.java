@@ -1,7 +1,14 @@
 package git.example.dell.clockmodel;
 
+import android.content.Intent;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 
 import git.example.dell.clockmodel.fragment.CrosstalkFragment;
@@ -9,24 +16,76 @@ import git.example.dell.clockmodel.fragment.RecommendFragment;
 import git.example.dell.clockmodel.fragment.VideoFragment;
 import git.example.dell.clockmodel.utils.RetrofitUtils;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     private CrosstalkFragment crosstalkFragment;
     private VideoFragment videoFragment;
     private RecommendFragment recommendFragment;
+    private RadioGroup rg;
+    private LinearLayout user;
+    private ImageView head_img;
+    private DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //获取控件
+        initview();
+
         AllFragment();
+
+        //设置DrawerLayout宽高
+       // setDrawerAdaptive();
+
 
 
     }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.user:
+                Intent intent = new Intent(this, Triple_LoginActivity.class);
+                startActivity(intent);
+
+                break;
+            case 1:
+
+                break;
+            default:
+
+                break;
+        }
+
+    }
+
+    private void setDrawerAdaptive() {
+        //获取当前屏幕宽高
+        WindowManager windowManager = this.getWindowManager();
+        int width = windowManager.getDefaultDisplay().getWidth();
+        int height = windowManager.getDefaultDisplay().getHeight();
+        //获取布局宽高并进行设置
+        ViewGroup.LayoutParams layoutParams = drawerLayout.getLayoutParams();
+        layoutParams.height=height;
+        layoutParams.width=width/3*2;
+        drawerLayout.setLayoutParams(layoutParams);
+    }
+
+    private void initview() {
+        rg = findViewById(R.id.rg);
+        //用户ID
+        user = findViewById(R.id.user);
+        head_img = findViewById(R.id.head_img);
+        drawerLayout = findViewById(R.id.drlayout);
+
+        user.setOnClickListener(this);
+    }
+
+
     private void AllFragment() {
-        //获取控件
-        RadioGroup rg = findViewById(R.id.rg);
+
         //创建RecommendFragment对象
         recommendFragment = new RecommendFragment();
 
@@ -81,4 +140,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
+
+
 }
