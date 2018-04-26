@@ -4,29 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <LinearLayout
-        android:padding="5dp"
-        android:background="@color/colorPrimaryDark"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:orientation="horizontal">
-        <ImageView
-            android:src="@drawable/touxiang"
-            android:layout_width="41dp"
-            android:layout_height="41dp" />
-        <TextView
-            android:textSize="20sp"
-            android:textColor="#FFFF"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:layout_width="33dp"
-            android:layout_height="35dp"
-            android:text="视频"/>
-        <ImageView
-            android:layout_width="41dp"
-            android:layout_height="41dp"
-            android:src="@drawable/raw_1500034665"/>
-    </LinearLayout>
+
     <android.support.design.widget.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

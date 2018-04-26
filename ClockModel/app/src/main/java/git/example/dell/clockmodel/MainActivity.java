@@ -148,6 +148,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragmentTransaction .commit();
 
     }
+   /* private void hideFragments(){
+        if (recommendFragment!=null&&recommendFragment.isAdded()){
+            getSupportFragmentManager().beginTransaction().hide(recommendFragment).commit();
+        }
+        if (crosstalkFragment!=null&&crosstalkFragment.isAdded()){
+            getSupportFragmentManager().beginTransaction().hide(crosstalkFragment).commit();
+        }
+        if (videoFragment!=null&&videoFragment.isAdded()){
+            getSupportFragmentManager().beginTransaction().hide(videoFragment).commit();
+        }
+
+    }*/
 
 
 }
