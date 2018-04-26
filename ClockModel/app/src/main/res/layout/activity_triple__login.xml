@@ -8,11 +8,11 @@
     tools:context="git.example.dell.clockmodel.Triple_LoginActivity">
 
     <ImageView
+        android:id="@+id/Back_RL"
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginTop="20dp"
-        android:background="@mipmap/raw_1500023215"
-        android:id="@+id/Back_RL"/>
+        android:background="@mipmap/raw_1500023215"/>
 
     <ImageView
         android:layout_width="70dp"
@@ -20,7 +20,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="67dp"
-        android:background="@drawable/reg_middle" />
+        android:background="@mipmap/reg_middle" />
 
     <ImageView
         android:id="@+id/WeChat_Login"
@@ -40,13 +40,13 @@
         android:layout_marginBottom="55dp"
         android:background="@mipmap/qq1" />
     <TextView
+        android:id="@+id/Other_LoginWay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
         android:textColor="@android:color/white"
-        android:text="其他登录方式"
-        android:id="@+id/TV_Login"/>
+        android:text="其他登录方式" />
 
 </RelativeLayout>

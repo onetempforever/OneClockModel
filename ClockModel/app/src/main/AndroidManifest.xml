@@ -21,11 +21,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".Triple_LoginActivity" />
+<<<<<<< HEAD
         <activity android:name=".VideoDetailActivity"></activity>
        <!-- <activity
             android:name=".baseui.activity.TestActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait"></activity>-->
+=======
+        <activity android:name=".Other_LoginActivity" />
+        <activity android:name=".RegisterActivity"></activity>
+>>>>>>> c5e78887585a97d334ac40f3c06a0c5c665662f5
     </application>
 
 </manifest>
