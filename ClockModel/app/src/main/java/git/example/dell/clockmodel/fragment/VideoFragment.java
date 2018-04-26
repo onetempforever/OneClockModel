@@ -10,13 +10,13 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import git.example.dell.clockmodel.R;
+import git.example.dell.clockmodel.fragment.videofragment.HotFragment;
+import git.example.dell.clockmodel.fragment.videofragment.NearBarFragment;
 
 
 /**
@@ -38,36 +38,8 @@ public class VideoFragment extends Fragment {
         table = view.findViewById(R.id.tablayout);
         viewpager = view.findViewById(R.id.viewpager);
 
-        menu = new ArrayList<>();
-        menu.add("热门");
-        menu.add("附近");
-        list = new ArrayList<>();
-        list.add(new HotFragment());
-        list.add(new NearBarFragment());
-        MyAdapter myAdapter=new MyAdapter(getActivity().getSupportFragmentManager());
-        viewpager.setAdapter(myAdapter);
-        table.setupWithViewPager(viewpager);
+
         return view;
     }
-    class MyAdapter extends FragmentPagerAdapter{
 
-        public MyAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return list.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return list.size();
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return menu.get(position);
-        }
-    }
 }

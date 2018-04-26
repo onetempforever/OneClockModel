@@ -1,15 +1,16 @@
-package git.example.dell.clockmodel.model;
+package git.example.dell.clockmodel.mydrawer.bean;
 
 /**
- * Created by dell on 2018/4/25.
+ * Created by DELL on 2018/4/26.
  */
 
 public class LoginBean {
 
+
     /**
      * msg : 登录成功
      * code : 0
-     * data : {"age":null,"appkey":"05a0329f3a6d05e2","appsecret":"260EA1D775B26487DBEEC77FE67DD316","createtime":"2018-04-25T21:04:55","email":null,"fans":null,"follow":null,"gender":null,"icon":"https://www.zhaoapi.cn/images/1523960139614touxiang.jpg","latitude":null,"longitude":null,"mobile":"13699202545","money":null,"nickname":null,"password":"8F669074CAF5513351A2DE5CC22AC04C","praiseNum":null,"token":"4B5D657C7D23644A5BE9454ED8DC1C7E","uid":13423,"userId":null,"username":"13699202545"}
+     * data : {"age":null,"appkey":"597a1948560c7908","appsecret":"C23006C712A827565EF6C8F08736C3D8","createtime":"2018-04-26T20:38:27","email":null,"fans":null,"follow":null,"gender":null,"icon":"https://www.zhaoapi.cn/images/1524374961866touxiang.jpg","latitude":null,"longitude":null,"mobile":"15566667777","money":null,"nickname":null,"password":"8F669074CAF5513351A2DE5CC22AC04C","praiseNum":null,"token":"D3F891BF085AFE7177AB8509AA587B54","uid":12663,"userId":null,"username":"15566667777"}
      */
 
     private String msg;
@@ -43,25 +44,25 @@ public class LoginBean {
     public static class DataBean {
         /**
          * age : null
-         * appkey : 05a0329f3a6d05e2
-         * appsecret : 260EA1D775B26487DBEEC77FE67DD316
-         * createtime : 2018-04-25T21:04:55
+         * appkey : 597a1948560c7908
+         * appsecret : C23006C712A827565EF6C8F08736C3D8
+         * createtime : 2018-04-26T20:38:27
          * email : null
          * fans : null
          * follow : null
          * gender : null
-         * icon : https://www.zhaoapi.cn/images/1523960139614touxiang.jpg
+         * icon : https://www.zhaoapi.cn/images/1524374961866touxiang.jpg
          * latitude : null
          * longitude : null
-         * mobile : 13699202545
+         * mobile : 15566667777
          * money : null
          * nickname : null
          * password : 8F669074CAF5513351A2DE5CC22AC04C
          * praiseNum : null
-         * token : 4B5D657C7D23644A5BE9454ED8DC1C7E
-         * uid : 13423
+         * token : D3F891BF085AFE7177AB8509AA587B54
+         * uid : 12663
          * userId : null
-         * username : 13699202545
+         * username : 15566667777
          */
 
         private Object age;
