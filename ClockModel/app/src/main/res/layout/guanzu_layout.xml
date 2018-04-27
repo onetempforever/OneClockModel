@@ -14,7 +14,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="140dp"
                 android:id="@+id/gz_bannder"></com.youth.banner.Banner>
-            <git.example.dell.clockmodel.mytuij.fragment.MyListView
+            <git.example.dell.clockmodel.mytuij.myfragment.MyListView
                 android:layout_width="match_parent"
                 android:layout_weight="1"
                 android:id="@+id/gzlv"

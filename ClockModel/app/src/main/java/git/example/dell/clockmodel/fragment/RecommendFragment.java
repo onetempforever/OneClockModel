@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel.mytuij.fragment;
+package git.example.dell.clockmodel.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import git.example.dell.clockmodel.R;
+import git.example.dell.clockmodel.mytuij.myfragment.GuanZhuFragment;
+import git.example.dell.clockmodel.mytuij.myfragment.ReMenFragment;
 
 /**
  * Created by DELL on 2018/4/24.

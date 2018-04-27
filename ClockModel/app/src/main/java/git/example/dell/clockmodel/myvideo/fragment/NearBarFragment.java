@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel.mytuij.fragment;
+package git.example.dell.clockmodel.myvideo.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -6,22 +6,18 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import git.example.dell.clockmodel.R;
 
 /**
- * Created by DELL on 2018/4/24.
+ * Created by dell on 2018/4/25.
  */
 
-public class VideoFragment extends Fragment {
-
+public class NearBarFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-
-        TextView textView = new TextView(getActivity());
-        textView.setText("视频");
-
-
-        return textView;
+        //View view = View.inflate(getActivity(), R.layout.nearbarfragment_layout, null);
+        return null;
     }
 }

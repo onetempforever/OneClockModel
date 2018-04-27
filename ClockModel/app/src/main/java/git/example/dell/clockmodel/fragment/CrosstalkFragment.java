@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel.mytuij.fragment;
+package git.example.dell.clockmodel.fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

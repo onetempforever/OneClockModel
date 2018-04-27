@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel.mytuij.fragment;
+package git.example.dell.clockmodel.mytuij.myfragment;
 
 import android.content.Context;
 import android.util.AttributeSet;

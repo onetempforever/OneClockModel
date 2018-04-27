@@ -31,6 +31,12 @@ dependencies {
     compile 'io.reactivex:rxjava:1.0.14'
     compile 'io.reactivex:rxandroid:1.0.1'
     compile 'com.squareup.okhttp3:okhttp:3.1.2'
+    compile 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.10'
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
     compile 'com.jcodecraeer:xrecyclerview:1.5.8'
     compile 'com.youth.banner:banner:1.4.8'
     compile 'com.github.bumptech.glide:glide:3.7.0'
@@ -40,4 +46,10 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.makeramen:roundedimageview:2.2.1'
     implementation files('lib/gradle-wrapper.jar')
+    compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'fm.jiecao:jiecaovideoplayer:5.5.2'
+    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+
 }
