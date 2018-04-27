@@ -1,13 +1,13 @@
-package git.example.dell.clockmodel.presenter;
+package git.example.dell.clockmodel.mytuij.presenter;
 
 
 import java.util.List;
 import java.util.Map;
 
-import git.example.dell.clockmodel.model.BannderBean;
-import git.example.dell.clockmodel.model.IModel;
-import git.example.dell.clockmodel.model.RMSPBean;
-import git.example.dell.clockmodel.view.RMIView;
+import git.example.dell.clockmodel.mytuij.model.BannderBean;
+import git.example.dell.clockmodel.mytuij.model.IModel;
+import git.example.dell.clockmodel.mytuij.model.RMSPBean;
+import git.example.dell.clockmodel.mytuij.view.RMIView;
 
 /**
  * Created by LI on 2018/4/9.

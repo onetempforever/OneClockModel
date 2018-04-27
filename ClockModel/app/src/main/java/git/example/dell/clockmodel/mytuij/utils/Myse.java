@@ -1,9 +1,9 @@
-package git.example.dell.clockmodel.utils;
+package git.example.dell.clockmodel.mytuij.utils;
 
 import java.util.Map;
 
-import git.example.dell.clockmodel.model.BannderBean;
-import git.example.dell.clockmodel.model.RMSPBean;
+import git.example.dell.clockmodel.mytuij.model.BannderBean;
+import git.example.dell.clockmodel.mytuij.model.RMSPBean;
 import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
 import rx.Observable;

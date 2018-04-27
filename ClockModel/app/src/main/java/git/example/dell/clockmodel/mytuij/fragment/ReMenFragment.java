@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel.fragment;
+package git.example.dell.clockmodel.mytuij.fragment;
 
 
 import android.content.Context;
@@ -21,11 +21,11 @@ import java.util.List;
 import java.util.Map;
 
 import git.example.dell.clockmodel.R;
-import git.example.dell.clockmodel.adapter.MyListViewAdapter;
-import git.example.dell.clockmodel.model.IModelImpl;
-import git.example.dell.clockmodel.model.RMSPBean;
-import git.example.dell.clockmodel.presenter.IPresenterImpl;
-import git.example.dell.clockmodel.view.RMIView;
+import git.example.dell.clockmodel.mytuij.adapter.MyListViewAdapter;
+import git.example.dell.clockmodel.mytuij.model.IModelImpl;
+import git.example.dell.clockmodel.mytuij.model.RMSPBean;
+import git.example.dell.clockmodel.mytuij.presenter.IPresenterImpl;
+import git.example.dell.clockmodel.mytuij.view.RMIView;
 
 /**
  * Created by LI on 2018/4/9.

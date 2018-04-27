@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel.model;
+package git.example.dell.clockmodel.mytuij.model;
 
 
 import android.util.Log;
@@ -6,9 +6,9 @@ import android.util.Log;
 import java.util.List;
 import java.util.Map;
 
-import git.example.dell.clockmodel.presenter.IPresenter;
-import git.example.dell.clockmodel.utils.Myse;
-import git.example.dell.clockmodel.utils.RetrofitUtils;
+import git.example.dell.clockmodel.mytuij.presenter.IPresenter;
+import git.example.dell.clockmodel.mytuij.utils.Myse;
+import git.example.dell.clockmodel.mytuij.utils.RetrofitUtils;
 import rx.Observer;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;

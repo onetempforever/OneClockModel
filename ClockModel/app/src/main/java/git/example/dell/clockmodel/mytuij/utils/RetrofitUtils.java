@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel.utils;
+package git.example.dell.clockmodel.mytuij.utils;
 
 import android.util.Log;
 

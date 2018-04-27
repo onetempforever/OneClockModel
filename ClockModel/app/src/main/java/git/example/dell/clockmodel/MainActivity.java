@@ -4,10 +4,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.RadioGroup;
 
-import git.example.dell.clockmodel.fragment.CrosstalkFragment;
-import git.example.dell.clockmodel.fragment.RecommendFragment;
-import git.example.dell.clockmodel.fragment.VideoFragment;
-import git.example.dell.clockmodel.utils.RetrofitUtils;
+import git.example.dell.clockmodel.mytuij.fragment.CrosstalkFragment;
+import git.example.dell.clockmodel.mytuij.fragment.RecommendFragment;
+import git.example.dell.clockmodel.mytuij.fragment.VideoFragment;
 
 public class MainActivity extends AppCompatActivity {
 

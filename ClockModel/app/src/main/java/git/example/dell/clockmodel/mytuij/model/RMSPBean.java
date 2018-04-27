@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel.model;
+package git.example.dell.clockmodel.mytuij.model;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel.adapter;
+package git.example.dell.clockmodel.mytuij.adapter;
 
 import android.content.Context;
 import android.util.Log;
@@ -19,7 +19,7 @@ import java.util.List;
 import cn.jzvd.JZVideoPlayer;
 import cn.jzvd.JZVideoPlayerStandard;
 import git.example.dell.clockmodel.R;
-import git.example.dell.clockmodel.model.RMSPBean;
+import git.example.dell.clockmodel.mytuij.model.RMSPBean;
 
 /**
  * Created by LI on 2018/4/11.
