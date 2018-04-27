@@ -1,5 +1,7 @@
 package git.example.dell.clockmodel.myvideo.model.Modellmpl;
 
+import android.util.Log;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,10 +12,10 @@ import git.example.dell.clockmodel.myvideo.model.VideoDetailBean;
 import git.example.dell.clockmodel.myvideo.presenter.IPresenter;
 import git.example.dell.clockmodel.api.API;
 import git.example.dell.clockmodel.api.MyServcie;
-import io.reactivex.Observer;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
-import io.reactivex.schedulers.Schedulers;
+import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by dell on 2018/4/26.
@@ -28,21 +30,21 @@ public class HotModellmpl implements HotModel {
 
 
     @Override
-    public void getHotData(Map<String, String> map) {
+    public void getHotData() {
+        Map<String,String> map = new HashMap<>();
         RetrofitUtils inData = RetrofitUtils.getInData();
         MyServcie retrofit = inData.getRetrofit(API.base_url, MyServcie.class);
+        map.put("page","1");
+        map.put("source","android");
+        map.put("appVersion","101");
+        map.put("token","4B5D657C7D23644A5BE9454ED8DC1C7E");
         retrofit.getVideodata(map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<VideoBean>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onCompleted() {
 
-                    }
-
-                    @Override
-                    public void onNext(VideoBean videoBean) {
-                        iPresenter.getVideoData(videoBean.getData());
                     }
 
                     @Override
@@ -51,8 +53,8 @@ public class HotModellmpl implements HotModel {
                     }
 
                     @Override
-                    public void onComplete() {
-
+                    public void onNext(VideoBean videoBean) {
+                        iPresenter.getVideoData(videoBean.getData());
                     }
                 });
     }
@@ -66,13 +68,8 @@ public class HotModellmpl implements HotModel {
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<VideoDetailBean>() {
                     @Override
-                    public void onSubscribe(Disposable d) {
+                    public void onCompleted() {
 
-                    }
-
-                    @Override
-                    public void onNext(VideoDetailBean videoDetailBean) {
-                        iPresenter.getVideoDatail(videoDetailBean.getData());
                     }
 
                     @Override
@@ -81,8 +78,8 @@ public class HotModellmpl implements HotModel {
                     }
 
                     @Override
-                    public void onComplete() {
-
+                    public void onNext(VideoDetailBean videoDetailBean) {
+                        iPresenter.getVideoDatail(videoDetailBean.getData());
                     }
                 });
     }

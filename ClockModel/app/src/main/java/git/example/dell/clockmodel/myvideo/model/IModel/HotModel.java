@@ -7,6 +7,6 @@ import java.util.Map;
  */
 
 public interface HotModel {
-    void getHotData( Map<String,String> map);
+    void getHotData( );
     void getVideoDetail(Map<String,String> map);
 }

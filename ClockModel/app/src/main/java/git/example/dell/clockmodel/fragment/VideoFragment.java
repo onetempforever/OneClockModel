@@ -14,8 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import git.example.dell.clockmodel.R;
+
 import git.example.dell.clockmodel.myvideo.fragment.HotFragment;
 import git.example.dell.clockmodel.myvideo.fragment.NearBarFragment;
+
 
 
 /**
@@ -36,6 +38,7 @@ public class VideoFragment extends Fragment {
         View view = View.inflate(getActivity(), R.layout.videofragment_layout, null);
         table = view.findViewById(R.id.tablayout);
         viewpager = view.findViewById(R.id.viewpager);
+
         menu = new ArrayList<>();
         menu.add("热门");
         menu.add("附近");
@@ -61,4 +64,5 @@ public class VideoFragment extends Fragment {
         table.setupWithViewPager(viewpager);
         return view;
     }
+
 }

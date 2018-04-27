@@ -1,5 +1,6 @@
 package git.example.dell.clockmodel.mytuij.adapter;
 
+import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.Log;
 import android.view.View;
@@ -7,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 
 
 import com.bumptech.glide.Glide;
@@ -25,10 +27,18 @@ import git.example.dell.clockmodel.mytuij.model.RMSPBean;
  * Created by LI on 2018/4/11.
  */
 
-public class MyListViewAdapter extends BaseAdapter implements View.OnClickListener{
+public class MyListViewAdapter extends BaseAdapter implements View.OnClickListener {
+    private int a = 0;
+
+
+
+
+    private View view;
+    private boolean fals = true;
     private List<RMSPBean.DataBean> list;
     private Context context;
     private ViewHodel viewHodel;
+
     private static final String TAG = "MyListViewAdapter";
 
     public MyListViewAdapter(List<RMSPBean.DataBean> list, Context context) {
@@ -40,6 +50,92 @@ public class MyListViewAdapter extends BaseAdapter implements View.OnClickListen
     public int getCount() {
         return list.size();
     }
+   /* viewHodel.img1.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick (View view){
+        if (fals) {
+            fals = false;
+            ObjectAnimator animato = ObjectAnimator.ofFloat(viewHodel.img1, "rotation", 0f, 180f);
+            animato.setDuration(1000);
+            animato.start();
+//                ObjectAnimator ani = ObjectAnimator.ofFloat( myViewHolder.img1, "alpha", 1f, 0f);
+//                ani.setDuration(1000);//时间1s
+//                ani.start();
+//                ObjectAnimator ani21 = ObjectAnimator.ofFloat( myViewHolder.img1, "alpha", 0f, 1f);
+//                ani21.setDuration(1000);//时间1s
+//                ani21.start();
+            ObjectAnimator animator = ObjectAnimator.ofFloat(viewHodel.img2, "alpha", 1f, 0f, 1f);
+            animator.setDuration(1000);//时间1s
+            animator.start();
+            ObjectAnimator animator2 = ObjectAnimator.ofFloat(viewHodel.img2, "rotation", 0f, 360f, 0f);
+            animator2.setDuration(1000);
+            animator2.start();
+            ObjectAnimator animator3 = ObjectAnimator.ofFloat(viewHodel.img2, "translationX", 0f, -90f);
+            animator3.setDuration(1000);
+            animator3.start();
+            ObjectAnimator ani1 = ObjectAnimator.ofFloat(viewHodel.img3, "alpha", 1f, 0f, 1f);
+            ani1.setDuration(1000);//时间1s
+            ani1.start();
+            ObjectAnimator ani2 = ObjectAnimator.ofFloat(viewHodel.img3, "rotation", 0f, 360f, 0f);
+            ani2.setDuration(1000);
+            ani2.start();
+            ObjectAnimator ani3 = ObjectAnimator.ofFloat(viewHodel.img3, "translationX", 0f, -180f);
+            ani3.setDuration(1000);
+            ani3.start();
+            ObjectAnimator anim1 = ObjectAnimator.ofFloat(viewHodel.img4, "alpha", 1f, 0f, 1f);
+            anim1.setDuration(1000);//时间1s
+            anim1.start();
+            ObjectAnimator anim2 = ObjectAnimator.ofFloat(viewHodel.img4, "rotation", 0f, 360f, 0f);
+            anim2.setDuration(1000);
+            anim2.start();
+            ObjectAnimator anim3 = ObjectAnimator.ofFloat(viewHodel.img4, "translationX", 0f, -270f);
+            anim3.setDuration(1000);
+            anim3.start();
+        } else {
+            fals = true;
+            ObjectAnimator anima = ObjectAnimator.ofFloat(viewHodel.img1, "rotation", 180f, 0f);
+            anima.setDuration(1000);
+            anima.start();
+//                ObjectAnimator ani = ObjectAnimator.ofFloat(myViewHolder.img1, "alpha", 0f, 1f);
+//                ani.setDuration(1000);//时间1s
+//                ani.start();
+//                ObjectAnimator ani21 = ObjectAnimator.ofFloat(myViewHolder.img1, "alpha", 1f, 0f);
+//                ani21.setDuration(1000);//时间1s
+//                ani21.start();
+            ObjectAnimator animator = ObjectAnimator.ofFloat(viewHodel.img2, "alpha", 1f, 0f);
+            animator.setDuration(1000);//时间1s
+            animator.start();
+            ObjectAnimator animator2 = ObjectAnimator.ofFloat(viewHodel.img2, "rotation", 0f, 360f, 0f);
+            animator2.setDuration(1000);
+            animator2.start();
+            ObjectAnimator animator3 = ObjectAnimator.ofFloat(viewHodel.img2, "translationX", -90f, 0f);
+            animator3.setDuration(1000);
+            animator3.start();
+            ObjectAnimator ani1 = ObjectAnimator.ofFloat(viewHodel.img3, "alpha", 1f, 0f);
+            ani1.setDuration(1000);//时间1s
+            ani1.start();
+            ObjectAnimator ani2 = ObjectAnimator.ofFloat(viewHodel.img3, "rotation", 0f, 360f, 0f);
+            ani2.setDuration(1000);
+            ani2.start();
+            ObjectAnimator ani3 = ObjectAnimator.ofFloat(viewHodel.img3, "translationX", -180f, 0f);
+            ani3.setDuration(1000);
+            ani3.start();
+            ObjectAnimator anim1 = ObjectAnimator.ofFloat(viewHodel.img4, "alpha", 1f, 0f);
+            anim1.setDuration(1000);//时间1s
+            anim1.start();
+            ObjectAnimator anim2 = ObjectAnimator.ofFloat(viewHodel.img4, "rotation", 0f, 360f, 0f);
+            anim2.setDuration(1000);
+            anim2.start();
+            ObjectAnimator anim3 = ObjectAnimator.ofFloat(viewHodel.img4, "translationX", -270f, 0f);
+            anim3.setDuration(1000);
+            anim3.start();
+        }
+
+
+    };
+
+    }*/
+
 
     @Override
     public Object getItem(int i) {
@@ -70,6 +166,10 @@ public class MyListViewAdapter extends BaseAdapter implements View.OnClickListen
             viewHodel.xhtv = (TextView) view.findViewById(R.id.xh_num);
             viewHodel.fxtv = (TextView) view.findViewById(R.id.zz_num);
             viewHodel.pltv = (TextView) view.findViewById(R.id.pl_num);
+          /*  viewHodel.img1 = view.findViewById(R.id.h_tuijian_img1);
+            viewHodel.img2 = view.findViewById(R.id.h_tuijian_img2);
+            viewHodel.img3 = view.findViewById(R.id.h_tuijian_img3);
+            viewHodel.img4 = view.findViewById(R.id.h_tuijian_img4);*/
             view.setTag(viewHodel);
 
         }else {
@@ -128,6 +228,10 @@ public class MyListViewAdapter extends BaseAdapter implements View.OnClickListen
         TextView dztv;
         TextView fxtv;
         TextView pltv;
+        ImageView img1;
+        ImageView img2;
+        ImageView img3;
+        ImageView img4;
 
     }
 }

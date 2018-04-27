@@ -26,7 +26,7 @@
             android:orientation="vertical"
             android:layout_margin="10dp"
             android:layout_toRightOf="@id/usertouxiang"
-            >
+            android:id="@+id/linearLayout2">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -42,7 +42,55 @@
                 android:textColor="#555555"
                 android:textSize="10dp"/>
 
+            <ImageView
+                android:id="@+id/h_tuijian_img4"
+                android:src="@drawable/raw_1499933215"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp" />
+
+            <ImageView
+                android:id="@+id/h_tuijian_img3"
+                android:src="@drawable/raw_1499933216"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp" />
+
+            <ImageView
+                android:id="@+id/h_tuijian_img2"
+                android:src="@drawable/raw_1499947056"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="32dp"
+                android:layout_height="32dp" />
+
+            <ImageView
+                android:id="@+id/h_tuijian_img1"
+                android:src="@drawable/raw_1499947358"
+                android:visibility="visible"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="38dp"
+                android:layout_height="38dp" />
+
         </LinearLayout>
+
+        <git.example.dell.clockmodel.fragment.CustomerView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/linearLayout2"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="16dp"
+            app:srcCompat="@drawable/d" />
+
+
     </RelativeLayout>
     <TextView
         android:layout_width="match_parent"
