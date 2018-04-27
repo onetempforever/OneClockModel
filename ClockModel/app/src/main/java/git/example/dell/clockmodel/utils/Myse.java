@@ -12,7 +12,7 @@ import rx.Observable;
  * Created by Administrator on 2018/4/25 0025.
  */
 
-public interface MyService {
+public interface Myse {
     @GET("quarter/getVideos")
     Observable<RMSPBean> getRMSPData(@QueryMap Map<String,String> map);
     @GET("quarter/getAd")

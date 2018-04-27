@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import git.example.dell.clockmodel.presenter.IPresenter;
-import git.example.dell.clockmodel.utils.MyService;
+import git.example.dell.clockmodel.utils.Myse;
 import git.example.dell.clockmodel.utils.RetrofitUtils;
 import rx.Observer;
 import rx.Subscription;
@@ -32,7 +32,7 @@ public class IModelImpl implements IModel{
     @Override
     public void getBannderBean(Map<String, String> map) {
         RetrofitUtils retrofitUtils = RetrofitUtils.getInData();
-        MyService retrofit = retrofitUtils.getRetrofit("https://www.zhaoapi.cn/", MyService.class);
+        Myse retrofit = retrofitUtils.getRetrofit("https://www.zhaoapi.cn/", Myse.class);
         Subscription subscribe = retrofit.getRMSPData(map)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -59,7 +59,7 @@ public class IModelImpl implements IModel{
     @Override
     public void getBannder1Bann() {
         RetrofitUtils retrofitUtils = RetrofitUtils.getInData();
-        MyService retrofit = retrofitUtils.getRetrofit("https://www.zhaoapi.cn/", MyService.class);
+        Myse retrofit = retrofitUtils.getRetrofit("https://www.zhaoapi.cn/", Myse.class);
         Subscription subscribe = retrofit.getBannder()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
