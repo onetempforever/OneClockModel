@@ -8,6 +8,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import git.example.dell.clockmodel.mydrawer.bean.Register;
+import git.example.dell.clockmodel.mydrawer.presenter.RegisterPresenter;
+import git.example.dell.clockmodel.mydrawer.view.RegisterView;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -36,6 +41,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         register.setOnClickListener(this);
         yk_login.setOnClickListener(this);
 
+        String mobile = phone.getText().toString();
+        String password = mima.getText().toString();
+
+
     }
 
     @Override
@@ -58,8 +67,29 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 break;
             case R.id.Register:
                 //点击跳转到推荐
-                Intent intent2 = new Intent(this, MainActivity.class);
-                startActivity(intent2);
+
+                RegisterPresenter registerPresenter = new RegisterPresenter();
+                registerPresenter.getRegisterPresenterData(phone.getText().toString(), mima.getText().toString(), new RegisterView() {
+                    @Override
+                    public void LoadeViewRegisterSuccess(Register register) {
+
+                        if ("0".equals(register.getCode())){
+                            Intent intent2 = new Intent(RegisterActivity.this, MainActivity.class);
+                            startActivity(intent2);
+                            Toast.makeText(RegisterActivity.this, ""+register.getMsg(), Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(RegisterActivity.this, ""+register.getMsg(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void LoadeViewRegisterError(Throwable t) {
+
+                    }
+                });
+                
+
+
 
                 break;
             case R.id.YK_Login:

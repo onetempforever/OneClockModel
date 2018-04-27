@@ -1,6 +1,7 @@
 package git.example.dell.clockmodel;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -12,10 +13,12 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import git.example.dell.clockmodel.fragment.CrosstalkFragment;
 import git.example.dell.clockmodel.fragment.RecommendFragment;
 import git.example.dell.clockmodel.fragment.VideoFragment;
+import git.example.dell.clockmodel.utils.SharedPreferencesUtils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout user;
     private ImageView head_img;
     private DrawerLayout drawerLayout;
+    private TextView user_tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +52,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.user:
-                Intent intent = new Intent(this, Triple_LoginActivity.class);
-                startActivity(intent);
+
 
                 break;
-            case 1:
+            case R.id.head_img:
 
-                break;
-            default:
+                Boolean isChecked = (Boolean) SharedPreferencesUtils.getParam(this, "isChecked", false);
+
+                if (isChecked){
+
+                    Intent intent = new Intent(this, UserInfoActivity.class);
+                    startActivity(intent);
+
+                }else{
+
+                    Intent intent = new Intent(this, Triple_LoginActivity.class);
+                    startActivity(intent);
+
+                }
+
 
                 break;
         }
@@ -79,8 +94,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //用户ID
         user = findViewById(R.id.user);
         head_img = findViewById(R.id.head_img);
+        user_tv = findViewById(R.id.user_tv);
         drawerLayout = findViewById(R.id.drlayout);
 
+        head_img.setOnClickListener(this);
         user.setOnClickListener(this);
     }
 
@@ -160,6 +177,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }*/
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        boolean isChecked = (boolean) SharedPreferencesUtils.getParam(this, "isChecked", false);
+        if (isChecked) {
+            String icon = (String) SharedPreferencesUtils.getParam(this, "icon", "");
+            String nickname = (String) SharedPreferencesUtils.getParam(this, "nickname", "");
+            head_img.setImageURI(Uri.parse(icon));
+            user_tv.setText(nickname);
+        } else {
+            head_img.setImageURI(Uri.parse("res://com.example.hp.quartertext/" + R.mipmap.touxiang));
+            user_tv.setText("椰汁奶茶");
+        }
+    }
 
 
 }

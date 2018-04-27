@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel.fragment.videofragment;
+package git.example.dell.clockmodel.myvideo.videofragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,7 +17,6 @@ public class NearBarFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = View.inflate(getActivity(), R.layout.nearbarfragment_layout, null);
-        return view;
+        return null;
     }
 }
