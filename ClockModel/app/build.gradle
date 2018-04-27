@@ -38,6 +38,11 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     //    日志拦截器
     compile 'com.squareup.okhttp3:logging-interceptor:3.4.1'
+    compile 'com.android.support:design:26.0.0-alpha1'
+    compile 'fm.jiecao:jiecaovideoplayer:5.5.2'
+    compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
+    compile 'fm.jiecao:jiecaovideoplayer:5.5'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
 
     compile 'com.vise.xiaoyaoyou:xsnow:2.1.8'
 }

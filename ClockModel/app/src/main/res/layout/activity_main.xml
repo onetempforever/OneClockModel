@@ -6,90 +6,297 @@
     android:layout_height="match_parent"
     tools:context="git.example.dell.clockmodel.MainActivity">
 
-
-
-    <!--侧拉菜单-->
     <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drlayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/drlayout">
+        android:layout_height="match_parent">
 
-
-        <!--主页面的布局使用DrawerLayout要记得导入依赖-->
+        <!--RadioGroup+RadioButton-->
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
 
-
-
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:orientation="horizontal"
-                android:id="@+id/rg">
-                <RadioButton
-
-                    android:id="@+id/rb0"
-                    android:button="@null"
-                    android:checked="true"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:background="@drawable/tuij"
-                    android:layout_width="wrap_content"
-                    android:layout_height="55dp" />
-                <RadioButton
-                    android:id="@+id/rb1"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:background="@drawable/duanz"
-                    android:layout_width="wrap_content"
-                    android:layout_height="55dp" />
-
-                <RadioButton
-                    android:id="@+id/rb2"
-                    android:button="@null"
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:background="@drawable/ship"
-                    android:layout_width="wrap_content"
-                    android:layout_height="55dp" />
-            </RadioGroup>
             <FrameLayout
                 android:id="@+id/fl"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_above="@+id/rg">
-            </FrameLayout>
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true" />
+
+            <RadioGroup
+                android:id="@+id/rg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rb0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/tuij"
+                    android:button="@null"
+                    android:checked="true"
+                    android:gravity="center" />
+
+                <RadioButton
+                    android:id="@+id/rb1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/duanz"
+                    android:button="@null"
+                    android:gravity="center" />
+
+                <RadioButton
+                    android:id="@+id/rb2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/ship"
+                    android:button="@null"
+                    android:gravity="center" />
+            </RadioGroup>
+
         </RelativeLayout>
 
         <!--侧拉菜单的布局   android:layout_gravity="start"  菜单在左边  end  菜单在右边 -->
         <RelativeLayout
+            android:id="@+id/rel"
             android:layout_width="240dp"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:background="#ffff00"
-            android:id="@+id/rel">
+            android:background="@android:color/white">
 
-
+            <!--用户背景图-->
             <ImageView
+                android:id="@+id/img"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@drawable/drawerlayout_background" />
+            <!--用户信息-->
+            <LinearLayout
+                android:id="@+id/user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="60dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/head_img"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/touxiang" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="椰汁奶茶"
+                    android:textColor="@android:color/white" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="50dp"
+                    android:background="@drawable/sex" />
+            </LinearLayout>
+            <!--个性签名-->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher"
-                android:id="@+id/img"/>
+                android:layout_below="@+id/user"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:text="编辑个性签名"
+                android:textColor="@android:color/white" />
 
-
-            <ListView
+            <!--我的关注-->
+            <LinearLayout
+                android:id="@+id/gz"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:id="@+id/lv"
-                android:layout_below="@id/img"></ListView>
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/img"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/raw_1499933216" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="我的关注" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="70dp"
+                    android:background="@drawable/raw_1499943790" />
+            </LinearLayout>
+
+            <!--我的收藏-->
+            <LinearLayout
+                android:id="@+id/cc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/gz"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/raw_1499947358" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="我的收藏" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="70dp"
+                    android:background="@drawable/raw_1499943790" />
+            </LinearLayout>
+            <!--搜索好友-->
+            <LinearLayout
+                android:id="@+id/hy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/cc"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/raw_1499946865" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="搜索好友" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="70dp"
+                    android:background="@drawable/raw_1499943790" />
+            </LinearLayout>
+
+            <!--消息通知-->
+            <LinearLayout
+                android:id="@+id/cz"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/hy"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/raw_1499947389" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="消息通知" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="70dp"
+                    android:background="@drawable/raw_1499943790" />
+            </LinearLayout>
+
+            <!--夜间模式-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/zs"
+                android:layout_marginBottom="50dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/moon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="夜间模式" />
+            </LinearLayout>
+
+            <!--条目选项-->
+            <LinearLayout
+                android:id="@+id/zs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+                <!--我的作品-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/raw_1499947056" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="我的作品" />
+                </LinearLayout>
+                <!--设置-->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@drawable/raw_1499947157" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="设置" />
+                </LinearLayout>
+
+            </LinearLayout>
+
         </RelativeLayout>
 
     </android.support.v4.widget.DrawerLayout>
-
 
 
 </RelativeLayout>
