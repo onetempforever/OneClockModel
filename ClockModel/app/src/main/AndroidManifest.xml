@@ -21,10 +21,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
+
         <activity android:name=".duanzi.mvp.FaBuActivity" />
         <activity android:name=".duanzi.mvp.TwoFBActivity"></activity>
-=======
+
         <activity android:name=".Triple_LoginActivity" />
 
         <activity android:name=".VideoDetailActivity"></activity>
@@ -34,7 +34,7 @@
             android:screenOrientation="portrait"></activity>-->
         <activity android:name=".Other_LoginActivity" />
         <activity android:name=".RegisterActivity"></activity>
->>>>>>> 1eca1dd2aa2a17feafed67972b0f15def46140d5
+
     </application>
 
 </manifest>

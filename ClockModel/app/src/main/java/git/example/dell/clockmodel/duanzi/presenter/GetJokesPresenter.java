@@ -1,10 +1,7 @@
 package git.example.dell.clockmodel.duanzi.presenter;
 
-import java.util.List;
-
 import git.example.dell.clockmodel.bean.GetJokeBean;
 import git.example.dell.clockmodel.bean.PostJokesBean;
-import git.example.dell.clockmodel.duanzi.model.MyAdapter;
 import git.example.dell.clockmodel.duanzi.mvp.IJokes;
 import git.example.dell.clockmodel.duanzi.mvp.NetWorkCallBack;
 import git.example.dell.clockmodel.duanzi.model.JokesModel;

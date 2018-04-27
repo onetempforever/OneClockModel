@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel.fragment.videofragment;
+package git.example.dell.clockmodel.myvideo.videofragment;
 
 import android.content.Intent;
 import android.os.Bundle;

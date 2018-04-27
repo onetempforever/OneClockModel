@@ -27,7 +27,7 @@ public class JokesModel implements IJokes.IGetJokesModel {
                     public void onSuccess(PostJokesBean data) {
 
                         netWorkCallBack.Success(data);
-//                        MyAdapter myAdapter=new MyAdapter()
+//                        HLSAdapter myAdapter=new HLSAdapter()
                     }
 
                     @Override

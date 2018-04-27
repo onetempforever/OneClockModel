@@ -18,7 +18,7 @@ import java.util.List;
 import git.example.dell.clockmodel.R;
 import git.example.dell.clockmodel.bean.GetJokeBean;
 import git.example.dell.clockmodel.bean.PostJokesBean;
-import git.example.dell.clockmodel.duanzi.model.MyAdapter;
+import git.example.dell.clockmodel.duanzi.model.HLSAdapter;
 import git.example.dell.clockmodel.duanzi.mvp.IJokes;
 import git.example.dell.clockmodel.duanzi.presenter.GetJokesPresenter;
 import git.example.dell.clockmodel.duanzi.mvp.FaBuActivity;
@@ -78,7 +78,7 @@ public class CrosstalkFragment extends Fragment implements IJokes.IGetJokesView 
 
         List<GetJokeBean.DataBean> data = getJokeBean.getData();
         Log.d("TestFragment", "getJokesSuccess: "+getJokeBean.toString());
-        MyAdapter adapter =new MyAdapter(getJokeBean.getData(),getActivity());
+        HLSAdapter adapter =new HLSAdapter(getJokeBean.getData(),getActivity());
         recyclerView.setAdapter(adapter);
     }
 

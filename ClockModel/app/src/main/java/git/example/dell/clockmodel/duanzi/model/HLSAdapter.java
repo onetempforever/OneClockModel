@@ -4,17 +4,13 @@ import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -25,8 +21,8 @@ import git.example.dell.clockmodel.bean.GetJokeBean;
  * Created by ASUS on 2018/4/26.
  */
 
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
-    private static final String TAG = "MyAdapter";
+public class HLSAdapter extends RecyclerView.Adapter<HLSAdapter.MyViewHolder> {
+    private static final String TAG = "HLSAdapter";
     private final Context context;
     private final List<GetJokeBean.DataBean> list;
     private ObjectAnimator animator;
@@ -43,7 +39,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private ImageView img2;
     private ImageView img3;
 
-    public MyAdapter (List<GetJokeBean.DataBean> list, Context context){
+    public HLSAdapter(List<GetJokeBean.DataBean> list, Context context){
         this.list = list;
         this.context = context;
     }
@@ -91,7 +87,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
     private void initData() {
         //-----伸出时的动画
-        animator = ObjectAnimator.ofFloat(anim, "rotation", 0f, 180f);
+        /*animator = ObjectAnimator.ofFloat(anim, "rotation", 0f, 180f);
         animator1 = ObjectAnimator.ofFloat(img1, "translationX", 0f,-80f);
         animator2 = ObjectAnimator.ofFloat(img2, "translationX", 0f,-160f);
         animator3 = ObjectAnimator.ofFloat(img3, "translationX", 0f,-240f);
@@ -166,7 +162,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             }
 
         });
-
+*/
     }
     class MyViewHolder extends RecyclerView.ViewHolder{
 
