@@ -18,6 +18,7 @@ import retrofit2.http.QueryMap;
  */
 
 public interface MyServcie {
+
     @GET("quarter/getHotVideos")
     Observable<VideoBean> getVideodata(@QueryMap Map<String,String> map);
     @GET("quarter/getVideoDetail")

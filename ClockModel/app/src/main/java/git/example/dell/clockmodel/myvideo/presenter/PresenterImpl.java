@@ -20,11 +20,7 @@ public class PresenterImpl implements IPresenter{
     @Override
     public void showVideoToView(HotModel hotModel, HotView hotView) {
         this.hotView=hotView;
-        Map<String,String> map=new HashMap<>();
-        map.put("source","android");
-        map.put("appVersion","101");
-        map.put("token","4B5D657C7D23644A5BE9454ED8DC1C7E");
-        hotModel.getHotData(map);
+        hotModel.getHotData();
     }
 
     @Override

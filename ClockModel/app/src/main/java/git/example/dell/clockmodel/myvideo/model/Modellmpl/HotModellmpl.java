@@ -1,5 +1,6 @@
 package git.example.dell.clockmodel.myvideo.model.Modellmpl;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import git.example.dell.clockmodel.myvideo.model.IModel.HotModel;
@@ -9,9 +10,8 @@ import git.example.dell.clockmodel.myvideo.presenter.IPresenter;
 import git.example.dell.clockmodel.api.API;
 import git.example.dell.clockmodel.api.MyServcie;
 import git.example.dell.clockmodel.utils.RetrofitUtils;
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -27,18 +27,18 @@ public class HotModellmpl implements HotModel {
 
 
     @Override
-    public void getHotData(Map<String, String> map) {
+    public void getHotData() {
+        Map<String,String> map = new HashMap<>();
         RetrofitUtils inData = RetrofitUtils.getInData();
-        MyServcie myServcie = inData.getRetrofit(API.base_url, MyServcie.class);
-        myServcie.getVideodata(map)
+        MyServcie retrofit = inData.getRetrofit(API.base_url, MyServcie.class);
+        map.put("page","1");
+        map.put("source","android");
+        map.put("appVersion","101");
+        map.put("token","4B5D657C7D23644A5BE9454ED8DC1C7E");
+        retrofit.getVideodata(map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<VideoBean>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
+                .subscribeWith(new DisposableObserver<VideoBean>() {
                     @Override
                     public void onNext(VideoBean videoBean) {
                         iPresenter.getVideoData(videoBean.getData());
@@ -63,12 +63,7 @@ public class HotModellmpl implements HotModel {
         myServcie.getVideoDateil(map)
                 .observeOn(Schedulers.io())
                 .subscribeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<VideoDetailBean>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-
-                    }
-
+                .subscribeWith(new DisposableObserver<VideoDetailBean>() {
                     @Override
                     public void onNext(VideoDetailBean videoDetailBean) {
                         iPresenter.getVideoDatail(videoDetailBean.getData());

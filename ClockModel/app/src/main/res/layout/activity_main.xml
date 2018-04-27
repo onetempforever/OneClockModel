@@ -33,7 +33,7 @@
 
                 <RadioButton
                     android:id="@+id/rb0"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:layout_weight="1"
                     android:background="@drawable/tuij"
@@ -43,7 +43,7 @@
 
                 <RadioButton
                     android:id="@+id/rb1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:layout_weight="1"
                     android:background="@drawable/duanz"
@@ -52,7 +52,7 @@
 
                 <RadioButton
                     android:id="@+id/rb2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:layout_weight="1"
                     android:background="@drawable/ship"
