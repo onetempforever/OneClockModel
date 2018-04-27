@@ -3,6 +3,7 @@ package git.example.dell.clockmodel.model;
 
 import android.util.Log;
 
+import java.util.List;
 import java.util.Map;
 
 import git.example.dell.clockmodel.presenter.IPresenter;
@@ -49,6 +50,33 @@ public class IModelImpl implements IModel{
                     @Override
                     public void onNext(RMSPBean rmspBean) {
                         Log.d(TAG, "onNext:==========="+rmspBean.getMsg());
+                        List<RMSPBean.DataBean> data = rmspBean.getData();
+                        iPresenter.setRMSPData(data);
+                    }
+                });
+    }
+
+    @Override
+    public void getBannder1Bann() {
+        RetrofitUtils retrofitUtils = RetrofitUtils.getInData();
+        MyService retrofit = retrofitUtils.getRetrofit("https://www.zhaoapi.cn/", MyService.class);
+        Subscription subscribe = retrofit.getBannder()
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<BannderBean>() {
+                    @Override
+                    public void onCompleted() {
+                        Log.d(TAG, "onCompleted:----------成功");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d(TAG, "onCompleted:----------失败"+e.getMessage());
+                    }
+
+                    @Override
+                    public void onNext(BannderBean bannderBean) {
+                      iPresenter.setBannder(bannderBean);
                     }
                 });
     }

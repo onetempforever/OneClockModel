@@ -12,5 +12,6 @@ import okhttp3.MultipartBody;
 
 public interface IModel {
     void getBannderBean(Map<String,String> map);
+    void getBannder1Bann();
 
 }

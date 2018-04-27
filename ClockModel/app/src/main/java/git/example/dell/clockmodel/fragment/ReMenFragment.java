@@ -50,10 +50,13 @@ public class ReMenFragment extends Fragment implements RMIView {
         iPresenter = new IPresenterImpl();
         //iPresenter.getBannderData(this, new IModelImpl(iPresenter));
         Map<String,String> map = new HashMap<>();
+        map.put("page","1");
+        map.put("source","android");
+        map.put("appVersion","101");
         IModelImpl iModel = new IModelImpl(iPresenter);
-        iPresenter.getBannderData(this,iModel,map);
+        iPresenter.getBannderData(this,new IModelImpl(iPresenter),map);
+        iPresenter.getBannder1Data(this,new IModelImpl(iPresenter));
         return view;
-
     }
 
 
@@ -75,7 +78,6 @@ public class ReMenFragment extends Fragment implements RMIView {
 
     @Override
     public void setSPData(List<RMSPBean.DataBean> data) {
-        data.size();
         Log.d(TAG, "setSPData: "+data.size());
         MyListViewAdapter myListViewAdapter = new MyListViewAdapter(data,getActivity());
         rmlv.setAdapter(myListViewAdapter);
