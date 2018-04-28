@@ -2,8 +2,10 @@ package git.example.dell.clockmodel.api;
 
 import java.util.Map;
 
+import git.example.dell.clockmodel.bean.NearBarBean;
 import git.example.dell.clockmodel.myvideo.model.VideoBean;
 import git.example.dell.clockmodel.myvideo.model.VideoDetailBean;
+import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
@@ -14,7 +16,12 @@ import retrofit2.http.QueryMap;
 
 public interface MyServcie {
     @GET("quarter/getHotVideos")
-    Observable<VideoBean> getVideodata(@QueryMap Map<String,String> map);
+    Flowable<VideoBean> getVideodata(@QueryMap Map<String,String> map);
     @GET("quarter/getVideoDetail")
-    Observable<VideoDetailBean> getVideoDateil(@QueryMap Map<String,String> map);
+    Flowable<VideoDetailBean> getVideoDateil(@QueryMap Map<String,String> map);
+    //获取附近视频
+    @GET("quarter/getNearVideos")
+    Flowable<NearBarBean> getNearbar(@QueryMap Map<String,String> map);
+    //附近视频详情
+
 }

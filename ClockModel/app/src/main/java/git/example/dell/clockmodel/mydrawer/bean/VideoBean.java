@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel.bean;
+package git.example.dell.clockmodel.mydrawer.bean;
 
 import java.util.List;
 
