@@ -2,6 +2,7 @@ package git.example.dell.clockmodel.api;
 
 import java.util.Map;
 
+import git.example.dell.clockmodel.mydrawer.bean.RegBean;
 import git.example.dell.clockmodel.mydrawer.bean.LoginBean;
 import git.example.dell.clockmodel.mydrawer.bean.Register;
 import git.example.dell.clockmodel.mydrawer.bean.UserInfoBean;
@@ -9,7 +10,9 @@ import git.example.dell.clockmodel.myvideo.model.VideoBean;
 import git.example.dell.clockmodel.myvideo.model.VideoDetailBean;
 import io.reactivex.Flowable;
 import io.reactivex.Observable;
+import okhttp3.MultipartBody;
 import retrofit2.http.GET;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
@@ -30,9 +33,9 @@ public interface MyServcie {
     @GET("register")
     Flowable<Register> getClockRegiest(@Query("mobile")String mobile, @Query("password")String password);
 
-  /*  //上传头像
+    //上传头像
     @GET("upload")
-    Flowable<>*/
+    Flowable<RegBean> getClockUpLoad(@Query("uid")String uid, @Part MultipartBody.Part file);
     //用户信息
     @GET("getUserInfo")
     Flowable<UserInfoBean> getUserInfo(@Query("uid")String uid,@Query("token")String token);

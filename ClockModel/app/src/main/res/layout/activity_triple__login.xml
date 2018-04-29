@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/reg1"
-    tools:context="git.example.dell.clockmodel.Triple_LoginActivity">
+    tools:context="git.example.dell.clockmodel.mydrawer.view.activity.Triple_LoginActivity">
 
     <ImageView
         android:id="@+id/Back_RL"
