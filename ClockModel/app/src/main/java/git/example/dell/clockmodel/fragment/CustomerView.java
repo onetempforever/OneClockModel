@@ -85,11 +85,11 @@ public class CustomerView extends RelativeLayout {
     public void showMenu() {
         //三个平移动画 平移出来
         ObjectAnimator firstAnimator = ObjectAnimator.ofFloat(image_pingbi
-                , "translationX", 0, -130);
+                , "translationX", 0, -50);
         ObjectAnimator secondAnimator = ObjectAnimator.ofFloat(image_copy
-                , "translationX", 0, -260);
+                , "translationX", 0, -120);
         ObjectAnimator thirdAnimator = ObjectAnimator.ofFloat(image_report
-                , "translationX", 0, -390);
+                , "translationX", 0, -200);
 
         //旋转动画
         ObjectAnimator rotation1 = ObjectAnimator.ofFloat(image_jian, "rotation", 0, 360, 0);

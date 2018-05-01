@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel;
+package git.example.dell.clockmodel.mydrawer.view.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import git.example.dell.clockmodel.MainActivity;
 import git.example.dell.clockmodel.R;
 
 public class Triple_LoginActivity extends AppCompatActivity implements View.OnClickListener{

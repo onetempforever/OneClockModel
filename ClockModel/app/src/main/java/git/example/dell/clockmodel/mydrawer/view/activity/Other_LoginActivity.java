@@ -1,4 +1,4 @@
-package git.example.dell.clockmodel;
+package git.example.dell.clockmodel.mydrawer.view.activity;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import git.example.dell.clockmodel.MainActivity;
+import git.example.dell.clockmodel.R;
 import git.example.dell.clockmodel.mydrawer.bean.LoginBean;
 import git.example.dell.clockmodel.mydrawer.presenter.LoginPresenter;
 import git.example.dell.clockmodel.mydrawer.view.LoginView;
@@ -77,6 +79,7 @@ public class Other_LoginActivity extends AppCompatActivity implements View.OnCli
                             SharedPreferencesUtils.setParam(Other_LoginActivity.this,"mobile",loginBean.getData().getMobile()+"");
                             SharedPreferencesUtils.setParam(Other_LoginActivity.this,"uid",loginBean.getData().getUid()+"");
                             SharedPreferencesUtils.setParam(Other_LoginActivity.this,"username",loginBean.getData().getUsername());
+                            SharedPreferencesUtils.setParam(Other_LoginActivity.this,"nickname","椰汁奶茶");
                             SharedPreferencesUtils.setParam(Other_LoginActivity.this,"icon",loginBean.getData().getIcon());
                             SharedPreferencesUtils.setParam(Other_LoginActivity.this,"token",loginBean.getData().getToken());
                             SharedPreferencesUtils.setParam(Other_LoginActivity.this,"isChecked", true);

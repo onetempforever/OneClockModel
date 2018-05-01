@@ -4,6 +4,7 @@ import java.util.Map;
 
 import git.example.dell.clockmodel.shangchuanduanzi.CrossTalkBean;
 import git.example.dell.clockmodel.bean.NearBarBean;
+import git.example.dell.clockmodel.mydrawer.bean.RegBean;
 import git.example.dell.clockmodel.mydrawer.bean.LoginBean;
 import git.example.dell.clockmodel.mydrawer.bean.Register;
 import git.example.dell.clockmodel.mydrawer.bean.UserInfoBean;
@@ -15,6 +16,9 @@ import retrofit2.http.FieldMap;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import okhttp3.MultipartBody;
+import retrofit2.http.GET;
+import retrofit2.http.Part;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 import retrofit2.http.Url;
@@ -48,6 +52,9 @@ public interface MyServcie {
     /*  //上传头像
       @GET("upload")
       Flowable<>*/
+    //上传头像
+    @GET("upload")
+    Flowable<RegBean> getClockUpLoad(@Query("uid")String uid, @Part MultipartBody.Part file);
     //用户信息
     @GET("getUserInfo")
     Flowable<UserInfoBean> getUserInfo(@Query("uid") String uid, @Query("token") String token);
