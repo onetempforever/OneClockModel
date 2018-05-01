@@ -9,16 +9,10 @@ import git.example.dell.clockmodel.myvideo.model.VideoDetailBean;
 import git.example.dell.clockmodel.myvideo.presenter.IPresenter;
 import git.example.dell.clockmodel.api.API;
 import git.example.dell.clockmodel.api.MyServcie;
-<<<<<<< HEAD
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
-=======
 import git.example.dell.clockmodel.utils.RetrofitUtils;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
->>>>>>> b4991757bc40972e678e0c3490e231e692683030
 
 /**
  * Created by dell on 2018/4/26.
