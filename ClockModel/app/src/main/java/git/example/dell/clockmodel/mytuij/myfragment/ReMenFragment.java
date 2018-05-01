@@ -38,7 +38,6 @@ public class ReMenFragment extends Fragment implements RMIView {
     private static final String TAG = "ReMenFragment";
     private Banner bannder;
     private MyListView rmlv;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -46,7 +45,7 @@ public class ReMenFragment extends Fragment implements RMIView {
 
         bannder = view.findViewById(R.id.bannder);
         rmlv = view.findViewById(R.id.rmlv);
-
+       // loveLayout = view.findViewById(R.id.lovea);
         iPresenter = new IPresenterImpl();
         //iPresenter.getBannderData(this, new IModelImpl(iPresenter));
         Map<String,String> map = new HashMap<>();
@@ -81,6 +80,7 @@ public class ReMenFragment extends Fragment implements RMIView {
         Log.d(TAG, "setSPData: "+data.size());
         MyListViewAdapter myListViewAdapter = new MyListViewAdapter(data,getActivity());
         rmlv.setAdapter(myListViewAdapter);
+
     }
 
 

@@ -110,78 +110,42 @@
            android:layout_height="match_parent"
            android:id="@+id/jzplaye"></cn.jzvd.JZVideoPlayerStandard>
         <LinearLayout
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
+            android:layout_width="50dp"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            >
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:id="@+id/dzimg"
-                android:src="@drawable/b"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="10dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <com.ldoublem.thumbUplib.ThumbUpView
+                android:id="@+id/tpv"
+                android:layout_weight="1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:cracksColor="#33475f"
+                app:edgeColor="#9d55b8"
+                app:fillColor="#ea8010"
+                app:unlikeType="1"
                 />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/dz_num"
-                android:textColor="#fff"
-                android:textSize="10dp"
-                android:text="1211"/>
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:id="@+id/xhimg"
-                android:src="@drawable/c"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
+            <com.ldoublem.thumbUplib.ThumbUpView
+                android:id="@+id/tpv2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                app:cracksColor="#33475f"
+                app:edgeColor="#9d55b8"
+                app:fillColor="#ea8010"
+                app:unlikeType="1"
                 />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/xh_num"
-                android:textColor="#fff"
-                android:textSize="10dp"
-                android:text="1211"/>
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:id="@+id/zzimg"
-                android:src="@drawable/xpfx"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
+            <com.ldoublem.thumbUplib.ThumbUpView
+                android:id="@+id/tpv3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:cracksColor="#33475f"
+                android:layout_weight="1"
+                app:edgeColor="#9d55b8"
+                app:fillColor="#ea8010"
+                app:unlikeType="1"
                 />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/zz_num"
-                android:textColor="#fff"
-                android:textSize="10dp"
-                android:text="1211"/>
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:id="@+id/plimg"
-                android:src="@drawable/pl"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="20dp"
-                />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:id="@+id/pl_num"
-                android:textColor="#fff"
-                android:textSize="10dp"
-                android:text="1211"/>
-
         </LinearLayout>
+
 
     </RelativeLayout>
     <LinearLayout

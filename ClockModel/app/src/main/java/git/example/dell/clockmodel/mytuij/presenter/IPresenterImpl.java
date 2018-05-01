@@ -9,7 +9,10 @@ import java.util.Map;
 
 import git.example.dell.clockmodel.mytuij.model.BannderBean;
 import git.example.dell.clockmodel.mytuij.model.IModel;
+import git.example.dell.clockmodel.mytuij.model.IModelImpl;
 import git.example.dell.clockmodel.mytuij.model.RMSPBean;
+import git.example.dell.clockmodel.mytuij.myfragment.GuanZhuFragment;
+import git.example.dell.clockmodel.mytuij.view.GZIView;
 import git.example.dell.clockmodel.mytuij.view.RMIView;
 
 /**
@@ -19,6 +22,7 @@ import git.example.dell.clockmodel.mytuij.view.RMIView;
 public class IPresenterImpl implements IPresenter {
     private static final String TAG = "IPresenterImpl";
     private RMIView view;
+    private GZIView gziView;
 
 
     @Override
@@ -32,6 +36,13 @@ public class IPresenterImpl implements IPresenter {
     public void getBannder1Data(RMIView view, IModel model) {
         this.view = view;
        model.getBannder1Bann();
+
+    }
+
+    @Override
+    public void getGuanzuData(GZIView gziView, IModel model, Map<String, String> map) {
+         this.gziView = gziView;
+         model.getGuanZhu(map);
 
     }
 
@@ -52,6 +63,13 @@ public class IPresenterImpl implements IPresenter {
         }
 
         view.setBannderData(list);
+
+    }
+
+    @Override
+    public void setGuanZhuData(List<RMSPBean.DataBean> list) {
+        Log.d(TAG, "setGuanZhuData: =========="+list.size());
+        gziView.setSPData(list);
 
     }
 
