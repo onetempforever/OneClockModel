@@ -1,10 +1,15 @@
 package git.example.dell.clockmodel;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +17,18 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import git.example.dell.clockmodel.fragment.CrosstalkFragment;
 import git.example.dell.clockmodel.fragment.RecommendFragment;
 import git.example.dell.clockmodel.fragment.VideoFragment;
+import git.example.dell.clockmodel.mydrawer.view.activity.QuitLoginctivity;
+import git.example.dell.clockmodel.mydrawer.view.activity.Triple_LoginActivity;
+import git.example.dell.clockmodel.mydrawer.view.activity.UserInfoActivity;
+import git.example.dell.clockmodel.utils.SharedPreferencesUtils;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -26,36 +39,54 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private LinearLayout user;
     private ImageView head_img;
     private DrawerLayout drawerLayout;
+    private TextView user_tv;
+    private LinearLayout quit_login;
+    private RelativeLayout rel;
 
+    @SuppressLint("ResourceAsColor")
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
 
         //获取控件
         initview();
-
-        AllFragment();
-
         //设置DrawerLayout宽高
-       // setDrawerAdaptive();
-
-
-
+        setDrawerAdaptive();
+        //Fragment Show Hide add
+        AllFragment();
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.user:
-                Intent intent = new Intent(this, Triple_LoginActivity.class);
-                startActivity(intent);
+            case R.id.Quit_Login:
+
+                Intent intent1 = new Intent(this, QuitLoginctivity.class);
+                startActivity(intent1);
+
 
                 break;
-            case 1:
+            case R.id.head_img:
 
-                break;
-            default:
+                Boolean isChecked = (Boolean) SharedPreferencesUtils.getParam(this, "isChecked", false);
+
+                if (isChecked){
+
+                    Intent intent = new Intent(this, UserInfoActivity.class);
+                    startActivity(intent);
+
+                }else{
+
+                    Intent intent = new Intent(this, Triple_LoginActivity.class);
+                    startActivity(intent);
+
+                }
+
 
                 break;
         }
@@ -63,15 +94,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setDrawerAdaptive() {
-        //获取当前屏幕宽高
-        WindowManager windowManager = this.getWindowManager();
-        int width = windowManager.getDefaultDisplay().getWidth();
-        int height = windowManager.getDefaultDisplay().getHeight();
-        //获取布局宽高并进行设置
-        ViewGroup.LayoutParams layoutParams = drawerLayout.getLayoutParams();
-        layoutParams.height=height;
-        layoutParams.width=width/3*2;
-        drawerLayout.setLayoutParams(layoutParams);
+        final WindowManager manager = this.getWindowManager();
+        //得出屏幕宽度
+        DisplayMetrics outMetrics = new DisplayMetrics();
+        manager.getDefaultDisplay().getMetrics(outMetrics);
+        int widthPixels = outMetrics.widthPixels;
+        //重新计算高度
+        ViewGroup.LayoutParams layoutParams = rel.getLayoutParams();
+        layoutParams.width = (int) (0.778 * widthPixels);
+        rel.setLayoutParams(layoutParams);
+
     }
 
     private void initview() {
@@ -79,11 +111,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //用户ID
         user = findViewById(R.id.user);
         head_img = findViewById(R.id.head_img);
+        user_tv = findViewById(R.id.user_tv);
+        quit_login = findViewById(R.id.Quit_Login);
+        rel = findViewById(R.id.rel);
         drawerLayout = findViewById(R.id.drlayout);
 
+        head_img.setOnClickListener(this);
+        quit_login.setOnClickListener(this);
         user.setOnClickListener(this);
     }
-
 
     private void AllFragment() {
 
@@ -146,9 +182,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             fragmentTransaction.hide(videoFragment);
         }
         fragmentTransaction .commit();
-
-    }
-   /* private void hideFragments(){
+        /* private void hideFragments(){
         if (recommendFragment!=null&&recommendFragment.isAdded()){
             getSupportFragmentManager().beginTransaction().hide(recommendFragment).commit();
         }
@@ -160,6 +194,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }*/
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        boolean isChecked = (boolean) SharedPreferencesUtils.getParam(this, "isChecked", false);
+        if (isChecked) {
+            String icon = (String) SharedPreferencesUtils.getParam(this, "icon", "");
+            String nickname = (String) SharedPreferencesUtils.getParam(this, "nickname", "");
+            /*head_img.setImageURI(Uri.parse(icon))*/;
+            Glide.with(this).load(icon).into(head_img);
+            user_tv.setText(nickname);
+        } else {
+            head_img.setImageURI(Uri.parse("res://com.example.hp.quartertext/" + R.mipmap.touxiang));
+            user_tv.setText("椰汁奶茶");
+        }
+    }
 
 
 }

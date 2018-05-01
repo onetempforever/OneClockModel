@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@mipmap/otherreg"
-    tools:context="git.example.dell.clockmodel.Other_LoginActivity">
+    tools:context="git.example.dell.clockmodel.mydrawer.view.activity.Other_LoginActivity">
 
 
     <ImageView
@@ -46,17 +46,17 @@
 
         <EditText
             android:layout_width="200dp"
-            android:layout_height="30dp"
-            android:background="@null"
+            android:layout_height="wrap_content"
             android:textColor="#999"
+            android:textColorHint="#fff"
             android:id="@+id/Login_zh"
             android:hint="账号" />
 
         <EditText
             android:layout_width="200dp"
-            android:layout_height="30dp"
-            android:background="@null"
+            android:layout_height="wrap_content"
             android:textColor="#999"
+            android:textColorHint="#fff"
             android:id="@+id/Login_mima"
             android:layout_alignStart="@+id/linearLayout"
             android:hint="密码" />

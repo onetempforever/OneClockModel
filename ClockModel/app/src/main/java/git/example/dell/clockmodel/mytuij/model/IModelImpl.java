@@ -8,12 +8,11 @@ import java.util.Map;
 
 import git.example.dell.clockmodel.mytuij.presenter.IPresenter;
 import git.example.dell.clockmodel.mytuij.utils.Myse;
-import git.example.dell.clockmodel.mytuij.utils.RetrofitUtils;
-import rx.Observer;
-import rx.Subscription;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
-
+import git.example.dell.clockmodel.utils.RetrofitUtils;
+import io.reactivex.Flowable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+import io.reactivex.subscribers.DisposableSubscriber;
 
 /**
  * Created by LI on 2018/4/9.
@@ -33,48 +32,56 @@ public class IModelImpl implements IModel{
     public void getBannderBean(Map<String, String> map) {
         RetrofitUtils retrofitUtils = RetrofitUtils.getInData();
         Myse retrofit = retrofitUtils.getRetrofit("https://www.zhaoapi.cn/", Myse.class);
-        Subscription subscribe = retrofit.getRMSPData(map)
-                .subscribeOn(Schedulers.newThread())
+        Flowable<RMSPBean> flowable = retrofit.getRMSPData(map);
+
+        flowable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<RMSPBean>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
+                .subscribeWith(new DisposableSubscriber<RMSPBean>() {
                     @Override
                     public void onNext(RMSPBean rmspBean) {
-                        Log.d(TAG, "onNext:==========="+rmspBean.getMsg());
+                         Log.d(TAG, "onNext:==========="+rmspBean.getMsg());
                         List<RMSPBean.DataBean> data = rmspBean.getData();
                         iPresenter.setRMSPData(data);
                     }
+
+                    @Override
+                    public void onError(Throwable t) {
+
+                    }
+
+                    @Override
+                    public void onComplete() {
+
+                    }
                 });
+
+
     }
 
     @Override
     public void getBannder1Bann() {
         RetrofitUtils retrofitUtils = RetrofitUtils.getInData();
         Myse retrofit = retrofitUtils.getRetrofit("https://www.zhaoapi.cn/", Myse.class);
-        Subscription subscribe = retrofit.getBannder()
-                .subscribeOn(Schedulers.newThread())
+        Flowable<BannderBean> flowable = retrofit.getBannder();
+        flowable.subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
+<<<<<<< HEAD
                  .subscribe(new Observer<BannderBean>() {
+=======
+                .subscribeWith(new DisposableSubscriber<BannderBean>() {
+>>>>>>> b4991757bc40972e678e0c3490e231e692683030
                     @Override
-                    public void onCompleted() {
-                        Log.d(TAG, "onCompleted:----------成功");
+                    public void onNext(BannderBean bannderBean) {
+                        iPresenter.setBannder(bannderBean);
                     }
 
                     @Override
-                    public void onError(Throwable e) {
-                        Log.d(TAG, "onCompleted:----------失败"+e.getMessage());
+                    public void onError(Throwable t) {
+
                     }
 
                     @Override
+<<<<<<< HEAD
                     public void onNext(BannderBean bannderBean) {
                       iPresenter.setBannder(bannderBean);
 
@@ -110,5 +117,12 @@ public class IModelImpl implements IModel{
 
 
 
+=======
+                    public void onComplete() {
+
+                    }
+                });
+
+>>>>>>> b4991757bc40972e678e0c3490e231e692683030
     }
 }

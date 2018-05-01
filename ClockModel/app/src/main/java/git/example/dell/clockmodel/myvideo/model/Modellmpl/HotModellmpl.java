@@ -1,20 +1,24 @@
 package git.example.dell.clockmodel.myvideo.model.Modellmpl;
 
-import android.util.Log;
-
 import java.util.HashMap;
 import java.util.Map;
 
-import git.example.dell.clockmodel.mytuij.utils.RetrofitUtils;
 import git.example.dell.clockmodel.myvideo.model.IModel.HotModel;
 import git.example.dell.clockmodel.myvideo.model.VideoBean;
 import git.example.dell.clockmodel.myvideo.model.VideoDetailBean;
 import git.example.dell.clockmodel.myvideo.presenter.IPresenter;
 import git.example.dell.clockmodel.api.API;
 import git.example.dell.clockmodel.api.MyServcie;
+<<<<<<< HEAD
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
+=======
+import git.example.dell.clockmodel.utils.RetrofitUtils;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.observers.DisposableObserver;
+import io.reactivex.schedulers.Schedulers;
+>>>>>>> b4991757bc40972e678e0c3490e231e692683030
 
 /**
  * Created by dell on 2018/4/26.
@@ -40,10 +44,10 @@ public class HotModellmpl implements HotModel {
         retrofit.getVideodata(map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<VideoBean>() {
+                .subscribeWith(new DisposableObserver<VideoBean>() {
                     @Override
-                    public void onCompleted() {
-
+                    public void onNext(VideoBean videoBean) {
+                        iPresenter.getVideoData(videoBean.getData());
                     }
 
                     @Override
@@ -52,8 +56,8 @@ public class HotModellmpl implements HotModel {
                     }
 
                     @Override
-                    public void onNext(VideoBean videoBean) {
-                        iPresenter.getVideoData(videoBean.getData());
+                    public void onComplete() {
+
                     }
                 });
     }
@@ -65,10 +69,10 @@ public class HotModellmpl implements HotModel {
         myServcie.getVideoDateil(map)
                 .observeOn(Schedulers.io())
                 .subscribeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<VideoDetailBean>() {
+                .subscribeWith(new DisposableObserver<VideoDetailBean>() {
                     @Override
-                    public void onCompleted() {
-
+                    public void onNext(VideoDetailBean videoDetailBean) {
+                        iPresenter.getVideoDatail(videoDetailBean.getData());
                     }
 
                     @Override
@@ -77,8 +81,8 @@ public class HotModellmpl implements HotModel {
                     }
 
                     @Override
-                    public void onNext(VideoDetailBean videoDetailBean) {
-                        iPresenter.getVideoDatail(videoDetailBean.getData());
+                    public void onComplete() {
+
                     }
                 });
     }

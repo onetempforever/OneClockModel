@@ -4,9 +4,9 @@ import java.util.Map;
 
 import git.example.dell.clockmodel.mytuij.model.BannderBean;
 import git.example.dell.clockmodel.mytuij.model.RMSPBean;
+import io.reactivex.Flowable;
 import retrofit2.http.GET;
 import retrofit2.http.QueryMap;
-import rx.Observable;
 
 /**
  * Created by Administrator on 2018/4/25 0025.
@@ -14,7 +14,7 @@ import rx.Observable;
 
 public interface Myse {
     @GET("quarter/getVideos")
-    Observable<RMSPBean> getRMSPData(@QueryMap Map<String,String> map);
+    Flowable<RMSPBean> getRMSPData(@QueryMap Map<String,String> map);
     @GET("quarter/getAd")
-    Observable<BannderBean> getBannder();
+    Flowable<BannderBean> getBannder();
 }
