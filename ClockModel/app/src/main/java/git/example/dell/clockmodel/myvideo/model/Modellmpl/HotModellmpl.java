@@ -12,7 +12,6 @@ import git.example.dell.clockmodel.myvideo.model.VideoDetailBean;
 import git.example.dell.clockmodel.myvideo.presenter.IPresenter;
 import git.example.dell.clockmodel.api.API;
 import git.example.dell.clockmodel.api.MyServcie;
-import io.reactivex.disposables.Disposable;
 import rx.Observer;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;

@@ -16,10 +16,15 @@ import com.youth.banner.Banner;
 import com.youth.banner.Transformer;
 import com.youth.banner.loader.ImageLoader;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 import git.example.dell.clockmodel.R;
+import git.example.dell.clockmodel.mytuij.adapter.MyListViewAdapter;
+import git.example.dell.clockmodel.mytuij.model.IModel;
+import git.example.dell.clockmodel.mytuij.model.IModelImpl;
 import git.example.dell.clockmodel.mytuij.model.RMSPBean;
 import git.example.dell.clockmodel.mytuij.presenter.IPresenterImpl;
 import git.example.dell.clockmodel.mytuij.view.GZIView;
@@ -32,30 +37,40 @@ public class GuanZhuFragment extends Fragment implements GZIView {
 
 
     private IPresenterImpl iPresenter;
-    private Banner gzBannder;
     private MyListView gzlv;
+    private static final String TAG = "GuanZhuFragment";
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.guanzu_layout, container, false);
-        gzBannder = view.findViewById(R.id.gz_bannder);
         gzlv = view.findViewById(R.id.gzlv);
-       /* iPresenter = new IPresenter();
-        iPresenter.getGZBannderData(this,new IModel(iPresenter));
+        /*gzBannder = view.findViewById(R.id.gz_bannder);
+        gzlv = view.findViewById(R.id.gzlv);
+       *//* iPresenter = new IPresenter();*/
+        /*iPresenter.getGZBannderData(this,new IModel(iPresenter));
         Map<String,String> map = new HashMap<>();
         map.put("type","1");
         map.put("page","1");
-        iPresenter.getGZListData(this,new IModelImpl(iPresenter),map);*/
+        iPresenter.getGZListData(this,new IModelImpl(iPresenter),map);*//*
+        */
 
 
+        iPresenter = new IPresenterImpl();
+        Map<String,String> map = new HashMap<>();
+        map.put("type","1");
+        map.put("page","1");
+        map.put("source","android");
+        map.put("appVersion","101");
+        iPresenter.getGuanzuData(this,new IModelImpl(iPresenter),map);
         return view;
+
     }
 
 
 
 
-    @Override
+    /*@Override
     public void setBannderData(List<String> bannder_url) {
         Log.d("aaa", "-----main展示-----");
         gzBannder.setBannerAnimation(Transformer.CubeOut);
@@ -69,11 +84,13 @@ public class GuanZhuFragment extends Fragment implements GZIView {
         gzBannder.setImages(bannder_url);
         gzBannder.start();
 
-    }
+    }*/
 
     @Override
     public void setSPData(List<RMSPBean.DataBean> data) {
-        
+        Log.d(TAG, "setSPData: ----------"+data.size());
+       MyListViewAdapter myListViewAdapter = new MyListViewAdapter(data,getActivity());
+        gzlv.setAdapter(myListViewAdapter);
     }
 
 

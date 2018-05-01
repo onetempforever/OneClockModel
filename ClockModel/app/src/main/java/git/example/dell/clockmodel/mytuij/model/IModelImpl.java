@@ -63,7 +63,7 @@ public class IModelImpl implements IModel{
         Subscription subscribe = retrofit.getBannder()
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<BannderBean>() {
+                 .subscribe(new Observer<BannderBean>() {
                     @Override
                     public void onCompleted() {
                         Log.d(TAG, "onCompleted:----------成功");
@@ -77,7 +77,38 @@ public class IModelImpl implements IModel{
                     @Override
                     public void onNext(BannderBean bannderBean) {
                       iPresenter.setBannder(bannderBean);
+
                     }
                 });
+    }
+
+    @Override
+    public void getGuanZhu(Map<String, String> map) {
+        RetrofitUtils retrofitUtils = RetrofitUtils.getInData();
+        Myse retrofit = retrofitUtils.getRetrofit("https://www.zhaoapi.cn/", Myse.class);
+        Subscription subscribe = retrofit.getRMSPData(map)
+                .subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<RMSPBean>() {
+                    @Override
+                    public void onCompleted() {
+                        Log.d(TAG, "onCompleted: --------关注成功");
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.d(TAG, "onError: ---------关注失败");
+                    }
+
+                    @Override
+                    public void onNext(RMSPBean rmspBean) {
+                        Log.d(TAG, "onNext:===========关注+111111111"+rmspBean.getMsg()+rmspBean.getData().size());
+                        List<RMSPBean.DataBean> data = rmspBean.getData();
+                        iPresenter.setGuanZhuData(data);
+                    }
+                });
+
+
+
     }
 }

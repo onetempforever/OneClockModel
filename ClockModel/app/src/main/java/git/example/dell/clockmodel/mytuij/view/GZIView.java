@@ -11,7 +11,7 @@ import git.example.dell.clockmodel.mytuij.model.RMSPBean;
  */
 
 public interface GZIView {
-    void setBannderData(List<String> bannder_url);
+
     void setSPData(List<RMSPBean.DataBean> data);
 
 }

@@ -9,5 +9,6 @@ import java.util.Map;
 public interface IModel {
     void getBannderBean(Map<String,String> map);
     void getBannder1Bann();
+    void getGuanZhu(Map<String,String> map);
 
 }
