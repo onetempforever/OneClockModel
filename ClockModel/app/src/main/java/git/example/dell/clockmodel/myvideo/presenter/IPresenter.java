@@ -10,6 +10,7 @@ import git.example.dell.clockmodel.myvideo.model.VideoDetailBean;
 import git.example.dell.clockmodel.myvideo.viewInter.HotView;
 import git.example.dell.clockmodel.myvideo.viewInter.NearBarView;
 import git.example.dell.clockmodel.myvideo.viewInter.NearDetailView;
+import git.example.dell.clockmodel.myvideo.viewInter.ShangChuanView;
 import git.example.dell.clockmodel.myvideo.viewInter.VideoDetailView;
 
 /**
@@ -31,4 +32,11 @@ public interface IPresenter {
   void showNearToView(HotModel hotModel, NearDetailView nearDetailView, Map<String, String> map);
   void getNearDatail(List<NearBarBean.DataBean> data);
   void getNearError(String error);
+  //上传段子
+  void getshangchuan(HotModel hotModel, ShangChuanView shangChuanView,String contex);
+
+  void getshangchuanlist(Object o);
+  void getshangchuanErroe(String error);
+
+
 }

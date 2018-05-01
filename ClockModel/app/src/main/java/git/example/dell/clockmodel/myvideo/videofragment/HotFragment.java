@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import javax.security.auth.login.LoginException;
+
 import git.example.dell.clockmodel.R;
 import git.example.dell.clockmodel.myvideo.model.Modellmpl.HotModellmpl;
 import git.example.dell.clockmodel.myvideo.model.VideoBean;
@@ -33,7 +35,7 @@ public class HotFragment extends Fragment implements HotView {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = LayoutInflater.from(getContext()).inflate(R.layout.hotfragment_layout, container, false);
+        view = View.inflate(getActivity(),R.layout.hotfragment_layout,null);
         initView();
         PresenterImpl presenter = new PresenterImpl();
         presenter.showVideoToView(new HotModellmpl(presenter), this);
@@ -48,7 +50,9 @@ public class HotFragment extends Fragment implements HotView {
 
     @Override
     public void showVideoSuccess(List<VideoBean.DataBean> data) {
+        Log.e("VideoBean",""+data.size());
         MyAdapter myAdapter = new MyAdapter(getActivity(), data);
+        recycler.setAdapter(myAdapter);
         myAdapter.setHotItemClickListener(new MyAdapter.HotItemClickListener() {
             @Override
             public void onClick(int wid) {
@@ -57,11 +61,12 @@ public class HotFragment extends Fragment implements HotView {
                 startActivity(intent);
             }
         });
-        recycler.setAdapter(myAdapter);
+
     }
 
     @Override
     public void showVideoError(String error) {
-        Log.d(TAG, "showVideoError: aaa" + error);
+        Log.d("异常", "showVideoError: aaa" + error);
+        Log.e("error","<<--"+error);
     }
 }

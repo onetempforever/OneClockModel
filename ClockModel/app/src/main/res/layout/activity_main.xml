@@ -33,7 +33,7 @@
 
                 <RadioButton
                     android:id="@+id/rb0"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:layout_weight="1"
                     android:background="@drawable/tuij"
@@ -43,7 +43,7 @@
 
                 <RadioButton
                     android:id="@+id/rb1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:layout_weight="1"
                     android:background="@drawable/duanz"
@@ -52,7 +52,7 @@
 
                 <RadioButton
                     android:id="@+id/rb2"
-                    android:layout_width="wrap_content"
+                    android:layout_width="55dp"
                     android:layout_height="55dp"
                     android:layout_weight="1"
                     android:background="@drawable/ship"
@@ -64,6 +64,7 @@
 
         <!--侧拉菜单的布局   android:layout_gravity="start"  菜单在左边  end  菜单在右边 -->
         <RelativeLayout
+            android:clickable="true"
             android:id="@+id/rel"
             android:layout_width="240dp"
             android:layout_height="match_parent"
@@ -94,8 +95,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:id="@+id/user_tv"
                     android:layout_marginLeft="20dp"
-                    android:text="椰汁奶茶"
+                    android:text="登录"
                     android:textColor="@android:color/white" />
 
                 <ImageView
@@ -106,6 +108,7 @@
             </LinearLayout>
             <!--个性签名-->
             <TextView
+                android:onClick="onClick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/user"

@@ -34,8 +34,8 @@ public class VideoDetailActivity extends AppCompatActivity implements VideoDetai
             map.put("wid",wid+"");
             Log.e("wid",wid+"");
         }
-        PresenterImpl presenter = new PresenterImpl();
-        presenter.showDetailToView(new HotModellmpl(presenter),this,map);
+       /* PresenterImpl presenter = new PresenterImpl();
+        presenter.showDetailToView(new HotModellmpl(presenter),this,map);*/
         Log.e("videoUrl","on");
     }
 

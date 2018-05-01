@@ -18,6 +18,8 @@ import git.example.dell.clockmodel.myvideo.videofragment.HotFragment;
 import git.example.dell.clockmodel.myvideo.videofragment.NearBarFragment;
 
 
+
+
 /**
  * Created by DELL on 2018/4/24.
  */
@@ -36,13 +38,17 @@ public class VideoFragment extends Fragment {
         View view = View.inflate(getActivity(), R.layout.videofragment_layout, null);
         table = view.findViewById(R.id.tablayout);
         viewpager = view.findViewById(R.id.viewpager);
+
         menu = new ArrayList<>();
         menu.add("热门");
         menu.add("附近");
         list = new ArrayList<>();
+       /* list.add(new git.example.dell.clockmodel.myvideo.videofragment.HotFragment());
+        list.add(new git.example.dell.clockmodel.myvideo.fragment.NearBarFragment());*/
         list.add(new HotFragment());
         list.add(new NearBarFragment());
-        viewpager.setAdapter(new FragmentPagerAdapter(getActivity().getSupportFragmentManager()) {
+        table.setupWithViewPager(viewpager);
+        viewpager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) { // 这个地方getChildFragmentManager()
             @Override
             public Fragment getItem(int position) {
                 return list.get(position);
@@ -58,7 +64,7 @@ public class VideoFragment extends Fragment {
                 return menu.get(position);
             }
         });
-        table.setupWithViewPager(viewpager);
+
         return view;
     }
 }

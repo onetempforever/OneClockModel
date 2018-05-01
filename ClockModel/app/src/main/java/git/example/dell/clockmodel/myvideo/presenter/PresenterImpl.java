@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import git.example.dell.clockmodel.application.MyApplication;
 import git.example.dell.clockmodel.bean.NearBarBean;
 import git.example.dell.clockmodel.myvideo.model.IModel.HotModel;
 import git.example.dell.clockmodel.myvideo.model.VideoBean;
@@ -13,7 +14,11 @@ import git.example.dell.clockmodel.myvideo.model.VideoDetailBean;
 import git.example.dell.clockmodel.myvideo.viewInter.HotView;
 import git.example.dell.clockmodel.myvideo.viewInter.NearBarView;
 import git.example.dell.clockmodel.myvideo.viewInter.NearDetailView;
+import git.example.dell.clockmodel.myvideo.viewInter.ShangChuanView;
 import git.example.dell.clockmodel.myvideo.viewInter.VideoDetailView;
+import git.example.dell.clockmodel.shangchuanduanzi.CrossTalkBean;
+import git.example.dell.clockmodel.utils.SharedPreferencesUtils;
+import retrofit2.http.HEAD;
 
 /**
  * Created by dell on 2018/4/26.
@@ -25,21 +30,24 @@ public class PresenterImpl implements IPresenter {
     private NearBarView nearBarView;
     private static final String TAG = "PresenterImpl";
     private NearDetailView nearDetailView;
+    private ShangChuanView ShangChuanView;
+
     @Override
     public void showVideoToView(HotModel hotModel, HotView hotView) {
+        Log.e("==============","showVideoToView");
         this.hotView = hotView;
         Map<String, String> map = new HashMap<>();
         map.put("source", "android");
         map.put("appVersion", "101");
         map.put("token", "4B5D657C7D23644A5BE9454ED8DC1C7E");
         hotModel.getHotData(map);
-    }
 
+    }
     @Override
     public void getVideoData(List<VideoBean.DataBean> data) {
+        Log.e("------",""+data.size());
         hotView.showVideoSuccess(data);
     }
-
     @Override
     public void getError(String error) {
         hotView.showVideoError(error);
@@ -99,5 +107,29 @@ public class PresenterImpl implements IPresenter {
     @Override
     public void getNearError(String error) {
 
+    }
+    //上传段子
+    @Override
+    public void getshangchuan(HotModel hotModel, ShangChuanView shangChuanView,String contex) {
+        this.ShangChuanView=shangChuanView;
+        Map<String,String> map=new HashMap<>();
+        String uid = (String) SharedPreferencesUtils.getParam(MyApplication.getContext(), "uid","");
+        map.put("uid", uid);
+        map.put("content",contex);
+        hotModel.getduanzai(map);
+    }
+
+    @Override
+    public void getshangchuanlist(Object o) {
+        CrossTalkBean v= (CrossTalkBean) o;
+        Log.e("tag",v.getMsg());
+        ShangChuanView.ShangChuanView(o);
+
+    }
+
+    @Override
+    public void getshangchuanErroe(String error) {
+        Log.e("tag",error);
+        ShangChuanView.ShangChuanViewError(error);
     }
 }
