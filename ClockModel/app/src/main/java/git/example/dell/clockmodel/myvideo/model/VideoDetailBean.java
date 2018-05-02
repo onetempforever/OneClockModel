@@ -261,6 +261,18 @@ public class VideoDetailBean {
             public void setPraiseNum(String praiseNum) {
                 this.praiseNum = praiseNum;
             }
+
+            @Override
+            public String toString() {
+                return "UserBean{" +
+                        "age=" + age +
+                        ", fans='" + fans + '\'' +
+                        ", follow=" + follow +
+                        ", icon='" + icon + '\'' +
+                        ", nickname='" + nickname + '\'' +
+                        ", praiseNum='" + praiseNum + '\'' +
+                        '}';
+            }
         }
 
         public static class CommentsBean {
@@ -357,6 +369,30 @@ public class VideoDetailBean {
             public void setWid(int wid) {
                 this.wid = wid;
             }
+
+            @Override
+            public String toString() {
+                return "CommentsBean{" +
+                        "cid=" + cid +
+                        ", content='" + content + '\'' +
+                        ", createTime='" + createTime + '\'' +
+                        ", jid=" + jid +
+                        ", mvp=" + mvp +
+                        ", nickname='" + nickname + '\'' +
+                        ", praiseNum=" + praiseNum +
+                        ", uid=" + uid +
+                        ", wid=" + wid +
+                        '}';
+            }
         }
+    }
+
+    @Override
+    public String toString() {
+        return "VideoDetailBean{" +
+                "msg='" + msg + '\'' +
+                ", code='" + code + '\'' +
+                ", data=" + data +
+                '}';
     }
 }

@@ -1,9 +1,12 @@
-package git.example.dell.clockmodel;
+package git.example.dell.clockmodel.myvideo.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 import git.example.dell.clockmodel.R;
@@ -26,23 +29,20 @@ public class VideoDetailActivity extends AppCompatActivity implements VideoDetai
         time = findViewById(R.id.video_detail_time);
         videojc = findViewById(R.id.hot_videojc);
         int wid = getIntent().getIntExtra("wid", -1);
-        /*if (wid!=-1){
-            Map<String,String> map=new HashMap<>();
+        Map<String,String> map=new HashMap<>();
+        if (wid!=-1){
             map.put("wid",wid+"");
-
-        }*/
-        PresenterImpl presenter = new PresenterImpl();
-        presenter.showDetailToView(new HotModellmpl(presenter),this);
-
+            Log.e("wid",wid+"");
+        }
+       /* PresenterImpl presenter = new PresenterImpl();
+        presenter.showDetailToView(new HotModellmpl(presenter),this,map);*/
+        Log.e("videoUrl","on");
     }
 
     @Override
     public void showVideoDetail(VideoDetailBean.DataBean data) {
         String videoUrl = data.getVideoUrl();
-
-
         videojc.setUp(videoUrl, 1);
-
         content.setText(data.getComments().get(0).getContent());
         time.setText(data.getCreateTime());
     }

@@ -29,6 +29,7 @@ import git.example.dell.clockmodel.mydrawer.view.activity.QuitLoginctivity;
 import git.example.dell.clockmodel.mydrawer.view.activity.Triple_LoginActivity;
 import git.example.dell.clockmodel.mydrawer.view.activity.UserInfoActivity;
 import git.example.dell.clockmodel.utils.SharedPreferencesUtils;
+import retrofit2.http.HEAD;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.user:
             case R.id.Quit_Login:
 
                 Intent intent1 = new Intent(this, QuitLoginctivity.class);
@@ -181,8 +183,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (videoFragment!=null&&videoFragment.isAdded()){
             fragmentTransaction.hide(videoFragment);
         }
+
+        // 事务只能提交一次
+        fragmentTransaction.commit();
+
+    }
+   /* private void hideFragments(){
+=======
         fragmentTransaction .commit();
         /* private void hideFragments(){
+>>>>>>> b4991757bc40972e678e0c3490e231e692683030
         if (recommendFragment!=null&&recommendFragment.isAdded()){
             getSupportFragmentManager().beginTransaction().hide(recommendFragment).commit();
         }
@@ -194,7 +204,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }*/
-    }
+
 
     @Override
     protected void onResume() {

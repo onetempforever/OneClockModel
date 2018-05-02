@@ -51,6 +51,8 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:26.0.0-alpha1'
     compile 'fm.jiecao:jiecaovideoplayer:5.5'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    // 卡牌
+    compile 'com.android.support:cardview-v7:26.1.0'
     //fresco加载图片框架 可加载动图
     compile 'com.facebook.fresco:fresco:0.12.0'
 
@@ -65,4 +67,7 @@ dependencies {
 
     //6.0动态权限
     compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.3@aar'
+    //多图上传
+    compile 'com.github.donkingliang:ImageSelector:1.2.0'
+    compile 'com.soundcloud.android:android-crop:1.0.1@aar'
 }

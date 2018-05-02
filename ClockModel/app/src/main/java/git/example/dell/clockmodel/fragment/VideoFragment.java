@@ -1,5 +1,6 @@
 package git.example.dell.clockmodel.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -22,11 +23,15 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 
-import git.example.dell.clockmodel.R;
 
-import git.example.dell.clockmodel.myvideo.fragment.HotFragment;
-import git.example.dell.clockmodel.myvideo.fragment.NearBarFragment;
+import git.example.dell.clockmodel.R;
+import git.example.dell.clockmodel.myvideo.activity.CreationActivity;
+import git.example.dell.clockmodel.myvideo.videofragment.HotFragment;
+import git.example.dell.clockmodel.myvideo.videofragment.NearBarFragment;
+
+
 import git.example.dell.clockmodel.utils.SharedPreferencesUtils;
+import retrofit2.http.HEAD;
 
 
 /**
@@ -80,10 +85,15 @@ public class VideoFragment extends Fragment implements View.OnClickListener{
         menu.add("热门");
         menu.add("附近");
         list = new ArrayList<>();
+       /* list.add(new git.example.dell.clockmodel.myvideo.videofragment.HotFragment());
+        list.add(new git.example.dell.clockmodel.myvideo.fragment.NearBarFragment());*/
         list.add(new HotFragment());
         list.add(new NearBarFragment());
-        table.setupWithViewPager(viewpager);
+       table.setupWithViewPager(viewpager);
+      //  viewpager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) { // 这个地方getChildFragmentManager()
+
     }
+
     //viewpager适配器
     private void ViewAdapter() {
         viewpager.setAdapter(new FragmentPagerAdapter(getChildFragmentManager()) {
@@ -102,6 +112,7 @@ public class VideoFragment extends Fragment implements View.OnClickListener{
                 return menu.get(position);
             }
         });
+
     }
 
     @Override
@@ -113,7 +124,7 @@ public class VideoFragment extends Fragment implements View.OnClickListener{
                 Toast.makeText(getActivity(), "触发了点击事件", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.fabu:
-
+                    startActivity(new Intent(getActivity(), CreationActivity.class));
                 break;
 
         }

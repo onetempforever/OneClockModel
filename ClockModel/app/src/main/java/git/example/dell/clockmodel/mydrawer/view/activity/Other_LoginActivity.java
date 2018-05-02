@@ -3,6 +3,7 @@ package git.example.dell.clockmodel.mydrawer.view.activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -72,7 +73,7 @@ public class Other_LoginActivity extends AppCompatActivity implements View.OnCli
                 loginPresenter.getLoginPresenterData(login_zh.getText().toString(), login_mima.getText().toString(), new LoginView() {
                     @Override
                     public void LoadeViewLoginSuccess(LoginBean loginBean) {
-
+                        Log.e("uid",loginBean.getData().getUid()+"");
                         if ("0".equals(loginBean.getCode())){
 
                             SharedPreferencesUtils.setParam(Other_LoginActivity.this,"mobile",loginBean.getData().getMobile()+"");

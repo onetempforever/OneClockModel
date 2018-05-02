@@ -2,6 +2,8 @@ package git.example.dell.clockmodel.myvideo.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -29,26 +31,29 @@ public class MyAdapter extends RecyclerView.Adapter <MyAdapter.MyViewHolder>{
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = View.inflate(context, R.layout.hotrecycler_item, null);
+        View view = LayoutInflater.from(context).inflate( R.layout.hotrecycler_item,parent,false);
 
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        ImageView hotrecycler = holder.getHotrecycler();
-        String icon = data.get(position).getUser().getIcon();
-        final int wid = data.get(position).getWid();
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
+        String cover = data.get(position).getCover();
+        Log.e("===onBindViewHolder===","===========");
 
-        Glide.with(context).load(icon).into(hotrecycler);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (hotItemClickListener!=null){
-                    hotItemClickListener.onClick(wid);
+                    hotItemClickListener.onClick(position);
                 }
             }
         });
+        if (cover!=null){
+            Glide.with(context).load(cover).into(holder.image);
+        }else{
+            holder.image.setImageResource(R.drawable.duanzi2);
+        }
     }
 
     @Override
@@ -58,15 +63,11 @@ public class MyAdapter extends RecyclerView.Adapter <MyAdapter.MyViewHolder>{
 
     class MyViewHolder extends RecyclerView.ViewHolder{
 
-        private final ImageView hotrecycler;
+        private final ImageView image;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            hotrecycler = itemView.findViewById(R.id.hotrecycler_image);
-        }
-
-        public ImageView getHotrecycler() {
-            return hotrecycler;
+            image = itemView.findViewById(R.id.hotrecycler_image);
         }
     }
     public interface HotItemClickListener{

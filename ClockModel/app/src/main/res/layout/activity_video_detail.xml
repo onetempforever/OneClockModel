@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="git.example.dell.clockmodel.VideoDetailActivity">
+    tools:context="git.example.dell.clockmodel.myvideo.activity.VideoDetailActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="40dp"

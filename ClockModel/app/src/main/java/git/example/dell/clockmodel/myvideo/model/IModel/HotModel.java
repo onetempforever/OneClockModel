@@ -7,6 +7,12 @@ import java.util.Map;
  */
 
 public interface HotModel {
-    void getHotData( );
+    void getHotData(Map<String,String> map );
     void getVideoDetail(Map<String,String> map);
+    //获取附近视频
+    void getNearbar(Map<String,String> map);
+
+    //上传段子啊
+    void getduanzai(Map<String,String> map);
+
 }

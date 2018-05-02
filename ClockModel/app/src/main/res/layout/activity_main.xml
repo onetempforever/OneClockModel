@@ -61,6 +61,7 @@
 
         <!--侧拉菜单的布局   android:layout_gravity="start"  菜单在左边  end  菜单在右边 -->
         <RelativeLayout
+            android:clickable="true"
             android:id="@+id/rel"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -104,6 +105,7 @@
             </LinearLayout>
             <!--个性签名-->
             <TextView
+                android:onClick="onClick"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/user"

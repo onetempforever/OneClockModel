@@ -14,11 +14,11 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import git.example.dell.clockmodel.R;
+import git.example.dell.clockmodel.myvideo.activity.VideoDetailActivity;
 import git.example.dell.clockmodel.myvideo.model.Modellmpl.HotModellmpl;
 import git.example.dell.clockmodel.myvideo.model.VideoBean;
 import git.example.dell.clockmodel.myvideo.presenter.PresenterImpl;
 import git.example.dell.clockmodel.myvideo.viewInter.HotView;
-import git.example.dell.clockmodel.VideoDetailActivity;
 import git.example.dell.clockmodel.myvideo.adapter.MyAdapter;
 
 /**
@@ -35,20 +35,22 @@ public class HotFragment extends Fragment implements HotView{
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = LayoutInflater.from(getContext()).inflate(R.layout.hotfragment_layout,container,false);
         initView();
+        Log.e("========","=======onCreateView");
         PresenterImpl presenter=new PresenterImpl();
         presenter.showVideoToView(new HotModellmpl(presenter),this);
         return view;
-    }
+}
 
     private void initView() {
         recycler = view.findViewById(R.id.recycler);
-      recycler.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
+        recycler.setLayoutManager(new StaggeredGridLayoutManager(2,StaggeredGridLayoutManager.VERTICAL));
     }
 
 
     @Override
     public void showVideoSuccess(List<VideoBean.DataBean> data) {
-       MyAdapter myAdapter=new MyAdapter(getActivity(),data);
+        Log.d(TAG, "showVideoSuccess: aaaa"+data.toString());
+        MyAdapter myAdapter=new MyAdapter(getActivity(),data);
         myAdapter.setHotItemClickListener(new MyAdapter.HotItemClickListener() {
             @Override
             public void onClick(int wid) {
