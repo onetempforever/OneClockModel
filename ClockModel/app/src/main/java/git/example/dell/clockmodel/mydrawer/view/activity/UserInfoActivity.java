@@ -17,6 +17,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -79,6 +81,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
             uid = (String) SharedPreferencesUtils.getParam(this, "uid","");
             token = (String) SharedPreferencesUtils.getParam(this, "token", "");
             nickname = (String) SharedPreferencesUtils.getParam(this, "nickname", "");
+            final String icon = (String) SharedPreferencesUtils.getParam(this, "icon", "");
 
             Toast.makeText(this, "uid"+uid, Toast.LENGTH_SHORT).show();
             if (uid!=""){
@@ -100,7 +103,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
                             userInfo_nickname.setText(UserInfoActivity.this.nickname);
                         }
                         if (userInfoBean.getData().getIcon()!=null){
-                            fresco.setImageURI(Uri.parse(userInfoBean.getData().getIcon()));
+                            Glide.with(UserInfoActivity.this).load(icon).into(fresco);
                         }
                         SharedPreferencesUtils.setParam(UserInfoActivity.this,"mobile",userInfoBean.getData().getMobile()+"");
                         SharedPreferencesUtils.setParam(UserInfoActivity.this,"uid",userInfoBean.getData().getUid()+"");
@@ -271,7 +274,7 @@ public class UserInfoActivity extends AppCompatActivity implements View.OnClickL
                         try {
                             //获得图片路径
                             filepath = UploadUtil.saveFile(photo, Environment.getExternalStorageDirectory().toString(), "hand.jpg");
-                            SharedPreferencesUtils.setParam(this,"icon",filepath);
+
 
                             //上传照片
                             toUploadFile();
