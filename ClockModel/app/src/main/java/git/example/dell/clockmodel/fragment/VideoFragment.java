@@ -23,6 +23,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import git.example.dell.clockmodel.R;
 import git.example.dell.clockmodel.myvideo.activity.CreationActivity;
 import git.example.dell.clockmodel.myvideo.videofragment.HotFragment;

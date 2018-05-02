@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
-import com.ldoublem.thumbUplib.ThumbUpView;
 import com.makeramen.roundedimageview.RoundedImageView;
 import java.util.List;
 import cn.jzvd.JZVideoPlayer;
@@ -62,9 +61,7 @@ public class MyListViewAdapter extends BaseAdapter  {
             viewHodel.userimg = (RoundedImageView) view.findViewById(R.id.usertouxiang);
             viewHodel.usertitle = (TextView) view.findViewById(R.id.usertitle);
             viewHodel.username = (TextView) view.findViewById(R.id.username);
-            viewHodel.tpv = view.findViewById(R.id.tpv);
-            viewHodel.tpv = view.findViewById(R.id.tpv2);
-            viewHodel.tpv = view.findViewById(R.id.tpv3);
+
 
           /*  viewHodel.img1 = view.findViewById(R.id.h_tuijian_img1);
             viewHodel.img2 = view.findViewById(R.id.h_tuijian_img2);
@@ -87,19 +84,7 @@ public class MyListViewAdapter extends BaseAdapter  {
         viewHodel.username.setText(dataBean.getCreateTime());
         Glide.with(context).load(user.getIcon()).into(viewHodel.userimg);
         viewHodel.username.setText(user.getNickname());
-        viewHodel.tpv.setUnLikeType(ThumbUpView.LikeType.broken);
-        viewHodel.tpv.setCracksColor(Color.rgb(22, 33, 44));
-        viewHodel.tpv.setFillColor(Color.rgb(11, 200, 77));
-        viewHodel.tpv.setEdgeColor(Color.rgb(33, 3, 219));
-        viewHodel.tpv.setOnThumbUp(new ThumbUpView.OnThumbUp() {
-            @Override
-            public void like(boolean like) {
-            Log.d("wwwwwwwwww","ccccccccccc");
 
-            }
-        });
-        viewHodel.tpv.Like();
-        viewHodel.tpv.UnLike();
         return view;
     }
 
@@ -109,9 +94,7 @@ public class MyListViewAdapter extends BaseAdapter  {
         TextView userdata;
         TextView usertitle;
         JZVideoPlayerStandard jzVideoPlayerStandard;
-        ThumbUpView tpv;
-        ThumbUpView tpv2;
-        ThumbUpView tpv3;
+
     }
 
 

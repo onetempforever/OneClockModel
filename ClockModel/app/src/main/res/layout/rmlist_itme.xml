@@ -32,14 +32,12 @@
                 android:layout_height="wrap_content"
                 android:text="天蝎喝牛奶"
                 android:id="@+id/username"
-                android:textColor="#ff00"
                 android:textSize="14dp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/userdata"
                 android:text="2017-05-23 14:25"
-                android:textColor="#555555"
                 android:textSize="10dp"/>
 
             <ImageView
@@ -99,7 +97,6 @@
         android:id="@+id/usertitle"
         android:layout_marginLeft="10dp"
         android:text="天气美美的适合郊游"
-        android:textColor="#000000"
         />
     <RelativeLayout
         android:layout_width="match_parent"
@@ -109,42 +106,7 @@
            android:layout_width="match_parent"
            android:layout_height="match_parent"
            android:id="@+id/jzplaye"></cn.jzvd.JZVideoPlayerStandard>
-        <LinearLayout
-            android:layout_width="50dp"
-            android:layout_alignParentRight="true"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-            <com.ldoublem.thumbUplib.ThumbUpView
-                android:id="@+id/tpv"
-                android:layout_weight="1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:cracksColor="#33475f"
-                app:edgeColor="#9d55b8"
-                app:fillColor="#ea8010"
-                app:unlikeType="1"
-                />
-            <com.ldoublem.thumbUplib.ThumbUpView
-                android:id="@+id/tpv2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                app:cracksColor="#33475f"
-                app:edgeColor="#9d55b8"
-                app:fillColor="#ea8010"
-                app:unlikeType="1"
-                />
-            <com.ldoublem.thumbUplib.ThumbUpView
-                android:id="@+id/tpv3"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:cracksColor="#33475f"
-                android:layout_weight="1"
-                app:edgeColor="#9d55b8"
-                app:fillColor="#ea8010"
-                app:unlikeType="1"
-                />
-        </LinearLayout>
+
 
 
     </RelativeLayout>
@@ -162,14 +124,12 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="10dp"
                 android:textSize="14dp"
-                android:textColor="@color/colorTextXuan"
                 android:text="骑猪上高速"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:textSize="14dp"
-                android:textColor="#000"
                 android:text=": 不错"/>
 
         </LinearLayout>
